@@ -240,42 +240,158 @@ nav a:hover {
   color: var(--white);
 }
 
-/* ─── CONTACT SECTION ────────────────────────────────── */
+/* ─── CONTACT / INQUIRY SECTION ─────────────────────── */
 
 .contact {
-  padding: 80px 5%;
+  padding: 88px 5%;
   background: var(--warm-cream);
+}
+
+.contact-inner {
+  max-width: 760px;
+  margin: 0 auto;
   text-align: center;
 }
 
-.contact h2 {
-  font-size: 2rem;
-  margin-bottom: 12px;
+.contact-inner h2 {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  color: var(--deep-green);
+  margin-bottom: 0.6rem;
 }
 
-.contact p {
+.contact-inner h2::after {
+  content: '';
+  display: block;
+  width: 56px;
+  height: 2px;
+  background: var(--gold-accent);
+  margin: 16px auto 0;
+}
+
+.contact-intro {
   font-size: 1.1rem;
   color: var(--muted-text);
-  margin-bottom: 36px;
+  font-style: italic;
+  margin: 20px 0 40px;
 }
 
-.form-placeholder {
-  background: var(--soft-gray);
-  border: 1px dashed var(--gold-accent);
-  padding: 60px 20px;
-  font-style: italic;
-  color: var(--muted-text);
-  border-radius: 4px;
-  max-width: 700px;
-  margin: 0 auto 32px;
+/* ─── FORM ───────────────────────────────────────────── */
+
+.inquiry-form {
+  text-align: left;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 22px;
+}
+
+.form-group label {
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--deep-green);
+  margin-bottom: 7px;
+}
+
+.req {
+  color: var(--gold-accent);
+  margin-left: 2px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 13px 16px;
+  border: 1px solid var(--soft-gray);
+  border-radius: 3px;
+  background: var(--white);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1rem;
+  color: var(--deep-green);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--gold-accent);
+  box-shadow: 0 0 0 3px rgba(198, 167, 94, 0.18);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 130px;
 }
 
 .sms-disclaimer {
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   color: var(--muted-text);
-  max-width: 640px;
-  margin: 0 auto;
   font-style: italic;
+  margin-top: 8px;
+  line-height: 1.6;
+}
+
+/* Checkbox row */
+.form-check {
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+.form-check input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  min-width: 18px;
+  accent-color: var(--gold-accent);
+  margin-top: 3px;
+  cursor: pointer;
+  border-radius: 2px;
+  padding: 0;
+  border: 1px solid var(--soft-gray);
+}
+
+.form-check input[type="checkbox"]:focus {
+  box-shadow: 0 0 0 3px rgba(198, 167, 94, 0.22);
+}
+
+.form-check label {
+  font-size: 0.9rem;
+  text-transform: none;
+  letter-spacing: 0;
+  font-weight: 400;
+  color: var(--muted-text);
+  cursor: pointer;
+}
+
+.submit-btn {
+  display: inline-block;
+  background: var(--deep-green);
+  color: var(--white);
+  padding: 14px 40px;
+  border: none;
+  border-radius: 3px;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  width: 100%;
+}
+
+.submit-btn:hover {
+  background: var(--gold-accent);
+  transform: translateY(-2px);
 }
 
 /* ─── FOOTER ─────────────────────────────────────────── */
@@ -345,16 +461,20 @@ nav a:hover {
   font-size: 1rem;
 }
 
-.sms-disclosure {
-  background: rgba(255, 255, 255, 0.04);
-  border-left: 3px solid var(--gold-accent);
-  border-radius: 2px;
-  padding: 20px 24px;
-  font-size: 0.82rem;
+.footer-legal-note {
+  font-size: 0.83rem;
   color: #a09a8e;
-  line-height: 1.8;
-  text-align: left;
-  margin: 32px 0 40px;
+  margin: 20px 0 32px;
+}
+
+.footer-legal-note a {
+  color: var(--gold-accent);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-legal-note a:hover {
+  color: var(--warm-cream);
 }
 
 .footer-copy {
@@ -363,6 +483,87 @@ nav a:hover {
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   padding-top: 24px;
   margin-top: 8px;
+}
+
+/* ─── RESPONSIVE ─────────────────────────────────────── */
+
+/* ─── POLICY PAGES (privacy / terms) ─────────────────── */
+
+.policy-page {
+  padding: 80px 5% 100px;
+  background: var(--warm-cream);
+}
+
+.policy-inner {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.policy-inner h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: var(--deep-green);
+  margin-bottom: 6px;
+}
+
+.policy-date {
+  font-size: 0.85rem;
+  color: var(--muted-text);
+  font-style: italic;
+  margin-bottom: 36px;
+}
+
+.policy-inner h2 {
+  font-size: 1.4rem;
+  color: var(--deep-green);
+  margin: 40px 0 10px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.policy-inner h3 {
+  font-size: 1.15rem;
+  color: var(--deep-green);
+  margin-bottom: 10px;
+}
+
+.policy-inner p,
+.policy-inner address {
+  font-size: 1.05rem;
+  color: var(--muted-text);
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+
+.policy-inner address {
+  font-style: normal;
+}
+
+.policy-inner a {
+  color: var(--gold-hover);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.policy-inner a:hover {
+  color: var(--deep-green);
+}
+
+/* Highlighted non-sharing clause block */
+.policy-highlight {
+  background: var(--soft-gray);
+  border-left: 4px solid var(--gold-accent);
+  border-radius: 3px;
+  padding: 28px 32px;
+  margin: 36px 0;
+}
+
+.policy-highlight p {
+  margin-bottom: 0;
+}
+
+.policy-back {
+  margin-top: 56px;
+  font-size: 0.95rem;
 }
 
 /* ─── RESPONSIVE ─────────────────────────────────────── */
@@ -392,7 +593,11 @@ nav a:hover {
     max-width: 100%;
   }
 
-  .sms-disclosure {
-    text-align: left;
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .submit-btn {
+    width: 100%;
   }
 }

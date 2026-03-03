@@ -83,20 +83,53 @@
         </div>
     </section>
 
-    <!-- CONTACT SECTION -->
+    <!-- CONTACT / INQUIRY SECTION -->
     <section id="contact" class="contact" aria-labelledby="contact-heading">
-        <h2 id="contact-heading">Have a Question?</h2>
-        <p>Submit your inquiry and our team will respond promptly.</p>
+        <div class="contact-inner">
+            <h2 id="contact-heading">Get In Touch</h2>
+            <p class="contact-intro">Have a question about tee times, events, or dining? Send us a message and our team
+                will respond within one business day.</p>
 
-        <!-- GHL Form Embed Will Go Here -->
-        <div class="form-placeholder">
-            GHL FORM EMBED GOES HERE
+            <form class="inquiry-form" name="inquiry" method="POST" action="#" novalidate>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="inq-name">Full Name <span class="req" aria-hidden="true">*</span></label>
+                        <input id="inq-name" type="text" name="name" placeholder="Jane Smith" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="inq-email">Email Address <span class="req" aria-hidden="true">*</span></label>
+                        <input id="inq-email" type="email" name="email" placeholder="jane@example.com" required />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="inq-phone">Phone Number</label>
+                    <input id="inq-phone" type="tel" name="phone" placeholder="(555) 000-0000" />
+                    <p class="sms-disclaimer">
+                        By providing your phone number, you agree to receive SMS messages from Elkhorn Golf Course &amp;
+                        Banquets
+                        regarding your inquiry. Message frequency varies. Msg &amp; data rates may apply. Reply STOP to
+                        unsubscribe.
+                    </p>
+                </div>
+
+                <div class="form-group">
+                    <label for="inq-message">Message <span class="req" aria-hidden="true">*</span></label>
+                    <textarea id="inq-message" name="message" rows="5" placeholder="Tell us how we can help…"
+                        required></textarea>
+                </div>
+
+                <div class="form-group form-check">
+                    <input id="inq-sms-consent" type="checkbox" name="sms_consent" value="yes" />
+                    <label for="inq-sms-consent">I agree to receive SMS communications from Elkhorn Golf Course &amp;
+                        Banquets.</label>
+                </div>
+
+                <button type="submit" class="submit-btn">Send Inquiry</button>
+
+            </form>
         </div>
-
-        <p class="sms-disclaimer">
-            By providing your phone number, you agree to receive SMS messages from Elkhorn Golf Course &amp; Banquets
-            regarding your inquiry. Message frequency varies. Msg &amp; data rates may apply. Reply STOP to unsubscribe.
-        </p>
     </section>
 
     <!-- FOOTER -->
@@ -118,12 +151,8 @@
                 <a href="terms.html">Terms of Service</a>
             </nav>
 
-            <p class="sms-disclosure">
-                No mobile information will be shared with third parties/affiliates for marketing/promotional purposes.
-                Information sharing to subcontractors in support services, such as customer service, is permitted. All
-                other use case categories exclude text messaging originator opt-in data and consent; this information
-                will not be shared with any third parties.
-            </p>
+            <p class="footer-legal-note">Our SMS and data-sharing policies are detailed in our <a
+                    href="privacy.html">Privacy Policy</a>.</p>
 
             <p class="footer-copy">&copy; <span id="footer-year"></span> Elkhorn Golf Course &amp; Banquets. All rights
                 reserved.</p>
