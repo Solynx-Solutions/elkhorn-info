@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Elkhorn Golf Course &amp; Banquets</title>
+    <title>Elkhorn Golf Course &amp; Events</title>
     <meta name="description"
-        content="Elkhorn Golf Course &amp; Banquets – Championship golf, elegant events, and elevated country dining." />
+        content="Elkhorn Golf Course &amp; Events – Championship golf, elegant events, and elevated country dining." />
 
     <link rel="stylesheet" href="styles.css" />
 
@@ -30,15 +30,23 @@
         </div>
     </header>
 
-    <!-- HERO SECTION -->
+    <!-- HERO SECTION (slideshow) -->
     <section class="hero" aria-label="Elkhorn hero banner">
-        <div class="hero-overlay">
-            <div class="hero-content">
-                <h1>Elkhorn Golf Course &amp; Banquets</h1>
-                <p>Championship golf. Elegant events. Elevated dining.</p>
-                <a href="#destinations" class="primary-btn">Explore Elkhorn</a>
-            </div>
+
+        <div class="hero-slides" aria-hidden="true">
+            <div class="slide active" style="background-image: url('assets/golf.jpg');"></div>
+            <div class="slide" style="background-image: url('assets/events.jpg');"></div>
+            <div class="slide" style="background-image: url('assets/dining.jpg');"></div>
         </div>
+
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content">
+            <h1>Elkhorn Golf Course &amp; Events</h1>
+            <p>Championship golf. Elegant events. Elevated dining.</p>
+            <a href="#destinations" class="primary-btn">Explore Elkhorn</a>
+        </div>
+
     </section>
 
     <!-- DESTINATIONS SECTION -->
@@ -108,7 +116,7 @@
                     <input id="inq-phone" type="tel" name="phone" placeholder="(555) 000-0000" />
                     <p class="sms-disclaimer">
                         By providing your phone number, you agree to receive SMS messages from Elkhorn Golf Course &amp;
-                        Banquets
+                        Events
                         regarding your inquiry. Message frequency varies. Msg &amp; data rates may apply. Reply STOP to
                         unsubscribe.
                     </p>
@@ -123,7 +131,7 @@
                 <div class="form-group form-check">
                     <input id="inq-sms-consent" type="checkbox" name="sms_consent" value="yes" />
                     <label for="inq-sms-consent">I agree to receive SMS communications from Elkhorn Golf Course &amp;
-                        Banquets.</label>
+                        Events.</label>
                 </div>
 
                 <button type="submit" class="submit-btn">Send Inquiry</button>
@@ -137,7 +145,7 @@
         <div class="footer-inner">
 
             <div class="footer-brand">
-                <p class="footer-name">Elkhorn Golf Course &amp; Banquets</p>
+                <p class="footer-name">Elkhorn Golf Course &amp; Events</p>
                 <address class="footer-address">
                     123 Elkhorn Drive, City, State 00000<br />
                     <a href="tel:+18005550000">1‑800‑555‑0000</a><br />
@@ -154,7 +162,7 @@
             <p class="footer-legal-note">Our SMS and data-sharing policies are detailed in our <a
                     href="privacy.html">Privacy Policy</a>.</p>
 
-            <p class="footer-copy">&copy; <span id="footer-year"></span> Elkhorn Golf Course &amp; Banquets. All rights
+            <p class="footer-copy">&copy; <span id="footer-year"></span> Elkhorn Golf Course &amp; Events. All rights
                 reserved.</p>
 
         </div>
@@ -162,6 +170,19 @@
 
     <script>
         document.getElementById('footer-year').textContent = new Date().getFullYear();
+    </script>
+
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        let current = 0;
+
+        function nextSlide() {
+            slides[current].classList.remove('active');
+            current = (current + 1) % slides.length;
+            slides[current].classList.add('active');
+        }
+
+        setInterval(nextSlide, 6000);
     </script>
 
 </body>
