@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Elkhorn Golf Course & Banquets</title>
+  <meta name="description" content="Elkhorn Golf Course & Banquets – Championship golf, elegant events, and elevated country dining." />
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Elegant Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <div class="logo">Elkhorn Golf Course</div>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-content">
+    <h1>Elkhorn Golf Course & Banquets</h1>
+    <div class="gold-divider"></div>
+    <p>Where championship golf meets elegant country hospitality.</p>
+  </div>
+</section>
+
+<section class="destinations">
+  <div class="card">
+    <h2>Golf Course</h2>
+    <p>Visit our championship golf website for tee times and course information.</p>
+    <a href="https://www.elkhorngc.com/" target="_blank" class="btn">Visit Golf Website</a>
+  </div>
+
+  <div class="card">
+    <h2>Events Center</h2>
+    <p>Explore weddings, corporate events, and private celebrations.</p>
+    <a href="https://elkhornbanquet.com/" target="_blank" class="btn">Visit Events Website</a>
+  </div>
+
+  <div class="card">
+    <h2>Elkhorn Grill</h2>
+    <p>View menus, specials, and dining experiences.</p>
+    <a href="https://elkhornbanquet.com/elkhorn-grill/" target="_blank" class="btn">Visit Grill Website</a>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <h2>Have a Question?</h2>
+  <p>Submit your inquiry and our team will respond promptly.</p>
+
+  <!-- GHL Form Embed Will Go Here -->
+  <div class="form-placeholder">
+    GHL FORM EMBED GOES HERE
+  </div>
+
+  <p class="sms-disclaimer">
+    By providing your phone number, you agree to receive SMS messages from Elkhorn Golf Course & Banquets regarding your inquiry. Message frequency varies. Msg & data rates may apply. Reply STOP to unsubscribe.
+  </p>
+</section>
+
+<footer class="site-footer">
+  <p>Elkhorn Golf Course & Banquets</p>
+  <p>123 Example Street, City, State</p>
+  <p>1-800-XXX-XXXX</p>
+  <p>info@elkhornexample.com</p>
+</footer>
+
+</body>
+</html>
