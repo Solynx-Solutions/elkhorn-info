@@ -1,78 +1,398 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Elkhorn Golf Course & Banquets</title>
-  <meta name="description" content="Elkhorn Golf Course & Banquets – Championship golf, elegant events, and elevated country dining." />
+/* ===============================
+   ELKHORN COUNTRY ELEGANT THEME
+================================ */
 
-  <link rel="stylesheet" href="styles.css" />
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Cormorant+Garamond:wght@400;500;600&display=swap');
 
-  <!-- Elegant Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
-</head>
-<body>
+:root {
+  --deep-green: #1f3a2e;
+  --warm-cream: #f5f2ea;
+  --gold-accent: #c6a75e;
+  --gold-hover: #a8893d;
+  --soft-gray: #e6e2d8;
+  --muted-text: #4d6259;
+  --white: #ffffff;
+  --border-light: rgba(198, 167, 94, 0.25);
+}
 
-<header class="site-header">
-  <div class="container">
-    <div class="logo">Elkhorn Golf Course</div>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-      <a href="privacy.html">Privacy</a>
-      <a href="terms.html">Terms</a>
-    </nav>
-  </div>
-</header>
+/* ─── RESET ─────────────────────────────────────────── */
 
-<section class="hero">
-  <div class="hero-content">
-    <h1>Elkhorn Golf Course & Banquets</h1>
-    <div class="gold-divider"></div>
-    <p>Where championship golf meets elegant country hospitality.</p>
-  </div>
-</section>
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-<section class="destinations">
-  <div class="card">
-    <h2>Golf Course</h2>
-    <p>Visit our championship golf website for tee times and course information.</p>
-    <a href="https://www.elkhorngc.com/" target="_blank" class="btn">Visit Golf Website</a>
-  </div>
+html {
+  scroll-behavior: smooth;
+}
 
-  <div class="card">
-    <h2>Events Center</h2>
-    <p>Explore weddings, corporate events, and private celebrations.</p>
-    <a href="https://elkhornbanquet.com/" target="_blank" class="btn">Visit Events Website</a>
-  </div>
+body {
+  background-color: var(--warm-cream);
+  color: var(--deep-green);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  line-height: 1.7;
+}
 
-  <div class="card">
-    <h2>Elkhorn Grill</h2>
-    <p>View menus, specials, and dining experiences.</p>
-    <a href="https://elkhornbanquet.com/elkhorn-grill/" target="_blank" class="btn">Visit Grill Website</a>
-  </div>
-</section>
+/* ─── TYPOGRAPHY ─────────────────────────────────────── */
 
-<section id="contact" class="contact">
-  <h2>Have a Question?</h2>
-  <p>Submit your inquiry and our team will respond promptly.</p>
+h1,
+h2,
+h3 {
+  font-family: 'Playfair Display', Georgia, serif;
+  line-height: 1.2;
+}
 
-  <!-- GHL Form Embed Will Go Here -->
-  <div class="form-placeholder">
-    GHL FORM EMBED GOES HERE
-  </div>
+/* ─── LAYOUT UTILITY ─────────────────────────────────── */
 
-  <p class="sms-disclaimer">
-    By providing your phone number, you agree to receive SMS messages from Elkhorn Golf Course & Banquets regarding your inquiry. Message frequency varies. Msg & data rates may apply. Reply STOP to unsubscribe.
-  </p>
-</section>
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
-<footer class="site-footer">
-  <p>Elkhorn Golf Course & Banquets</p>
-  <p>123 Example Street, City, State</p>
-  <p>1-800-XXX-XXXX</p>
-  <p>info@elkhornexample.com</p>
-</footer>
+/* ─── HEADER ─────────────────────────────────────────── */
 
-</body>
-</html>
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--deep-green);
+  padding: 18px 0;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.logo {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--gold-accent);
+  letter-spacing: 0.04em;
+}
+
+nav a {
+  color: var(--warm-cream);
+  text-decoration: none;
+  margin-left: 28px;
+  font-size: 0.95rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: color 0.2s ease;
+}
+
+nav a:hover {
+  color: var(--gold-accent);
+}
+
+/* ─── HERO ───────────────────────────────────────────── */
+
+.hero {
+  height: 90vh;
+  background: url('assets/hero.jpg') center / cover no-repeat;
+  position: relative;
+}
+
+.hero-overlay {
+  height: 100%;
+  background: rgba(31, 58, 46, 0.58);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 5%;
+}
+
+.hero-content h1 {
+  font-size: clamp(2rem, 6vw, 3.6rem);
+  color: var(--white);
+  margin-bottom: 1rem;
+  letter-spacing: 0.02em;
+}
+
+.hero-content p {
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  color: #f0ece3;
+  margin-bottom: 2.2rem;
+  font-style: italic;
+}
+
+.primary-btn {
+  display: inline-block;
+  background: var(--gold-accent);
+  color: var(--white);
+  padding: 14px 36px;
+  text-decoration: none;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  border-radius: 3px;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.primary-btn:hover {
+  background: var(--gold-hover);
+  transform: translateY(-2px);
+}
+
+/* ─── DESTINATIONS SECTION ───────────────────────────── */
+
+.destinations {
+  padding: 96px 5%;
+  background: var(--white);
+  text-align: center;
+}
+
+.section-intro {
+  margin-bottom: 60px;
+}
+
+.section-title {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  color: var(--deep-green);
+  margin-bottom: 0.6rem;
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  width: 56px;
+  height: 2px;
+  background: var(--gold-accent);
+  margin: 16px auto 0;
+}
+
+.section-subtitle {
+  font-size: 1.15rem;
+  color: var(--muted-text);
+  font-style: italic;
+  margin-top: 20px;
+}
+
+/* ─── CARDS ──────────────────────────────────────────── */
+
+.cards {
+  display: flex;
+  gap: 32px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.card {
+  background: var(--warm-cream);
+  border: 1px solid var(--border-light);
+  border-bottom: 3px solid var(--gold-accent);
+  padding: 48px 36px 40px;
+  flex: 1 1 280px;
+  max-width: 360px;
+  text-align: center;
+  border-radius: 4px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 40px rgba(31, 58, 46, 0.12);
+}
+
+.card-icon {
+  font-size: 2.4rem;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.card h3 {
+  font-size: 1.5rem;
+  color: var(--deep-green);
+  margin-bottom: 14px;
+  letter-spacing: 0.02em;
+}
+
+.card p {
+  font-size: 1.05rem;
+  color: var(--muted-text);
+  line-height: 1.75;
+  margin-bottom: 28px;
+}
+
+.card-btn {
+  display: inline-block;
+  padding: 11px 28px;
+  background: transparent;
+  color: var(--deep-green);
+  border: 1.5px solid var(--gold-accent);
+  border-radius: 3px;
+  text-decoration: none;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.06em;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+.card-btn:hover {
+  background: var(--gold-accent);
+  color: var(--white);
+}
+
+/* ─── CONTACT SECTION ────────────────────────────────── */
+
+.contact {
+  padding: 80px 5%;
+  background: var(--warm-cream);
+  text-align: center;
+}
+
+.contact h2 {
+  font-size: 2rem;
+  margin-bottom: 12px;
+}
+
+.contact p {
+  font-size: 1.1rem;
+  color: var(--muted-text);
+  margin-bottom: 36px;
+}
+
+.form-placeholder {
+  background: var(--soft-gray);
+  border: 1px dashed var(--gold-accent);
+  padding: 60px 20px;
+  font-style: italic;
+  color: var(--muted-text);
+  border-radius: 4px;
+  max-width: 700px;
+  margin: 0 auto 32px;
+}
+
+.sms-disclaimer {
+  font-size: 0.85rem;
+  color: var(--muted-text);
+  max-width: 640px;
+  margin: 0 auto;
+  font-style: italic;
+}
+
+/* ─── FOOTER ─────────────────────────────────────────── */
+
+.site-footer {
+  background: var(--deep-green);
+  color: var(--soft-gray);
+  padding: 64px 5% 36px;
+  font-size: 0.95rem;
+}
+
+.footer-inner {
+  max-width: 860px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.footer-name {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.3rem;
+  color: var(--gold-accent);
+  margin-bottom: 18px;
+  letter-spacing: 0.04em;
+}
+
+.footer-address {
+  font-style: normal;
+  line-height: 2;
+  color: #c8c0ae;
+  margin-bottom: 28px;
+}
+
+.footer-address a {
+  color: #c8c0ae;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-address a:hover {
+  color: var(--gold-accent);
+}
+
+.footer-links {
+  margin: 28px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  color: var(--soft-gray);
+  text-decoration: none;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover {
+  color: var(--gold-accent);
+}
+
+.footer-divider {
+  color: var(--border-light);
+  font-size: 1rem;
+}
+
+.sms-disclosure {
+  background: rgba(255, 255, 255, 0.04);
+  border-left: 3px solid var(--gold-accent);
+  border-radius: 2px;
+  padding: 20px 24px;
+  font-size: 0.82rem;
+  color: #a09a8e;
+  line-height: 1.8;
+  text-align: left;
+  margin: 32px 0 40px;
+}
+
+.footer-copy {
+  font-size: 0.82rem;
+  color: #7a7367;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 24px;
+  margin-top: 8px;
+}
+
+/* ─── RESPONSIVE ─────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    gap: 14px;
+    text-align: center;
+  }
+
+  nav a {
+    margin: 0 10px;
+    font-size: 0.85rem;
+  }
+
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    max-width: 100%;
+  }
+
+  .sms-disclosure {
+    text-align: left;
+  }
+}

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Elkhorn Golf Course &amp; Banquets</title>
+    <meta name="description"
+        content="Elkhorn Golf Course &amp; Banquets – Championship golf, elegant events, and elevated country dining." />
+
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Elegant Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Cormorant+Garamond:wght@400;500;600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="container">
+            <div class="logo">Elkhorn Golf Course</div>
+            <nav>
+                <a href="#destinations">Explore</a>
+                <a href="#contact">Contact</a>
+                <a href="privacy.html">Privacy</a>
+                <a href="terms.html">Terms</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero" aria-label="Elkhorn hero banner">
+        <div class="hero-overlay">
+            <div class="hero-content">
+                <h1>Elkhorn Golf Course &amp; Banquets</h1>
+                <p>Championship golf. Elegant events. Elevated dining.</p>
+                <a href="#destinations" class="primary-btn">Explore Elkhorn</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- DESTINATIONS SECTION -->
+    <section id="destinations" class="destinations" aria-labelledby="destinations-heading">
+        <div class="section-intro">
+            <h2 id="destinations-heading" class="section-title">Our Destinations</h2>
+            <p class="section-subtitle">Three world-class experiences, one remarkable property.</p>
+        </div>
+
+        <div class="cards">
+
+            <!-- Card 1: Golf Course -->
+            <article class="card">
+                <div class="card-icon" aria-hidden="true">⛳</div>
+                <h3>Golf Course</h3>
+                <p>Play a round on our meticulously maintained championship course, designed for players of every skill
+                    level. Book your tee time and experience golf the Elkhorn way.</p>
+                <a href="https://www.elkhorngc.com/" target="_blank" rel="noopener noreferrer" class="card-btn">Visit
+                    Golf Website &rarr;</a>
+            </article>
+
+            <!-- Card 2: Events & Banquets -->
+            <article class="card">
+                <div class="card-icon" aria-hidden="true">🥂</div>
+                <h3>Events &amp; Banquets</h3>
+                <p>From intimate gatherings to grand celebrations, our elegant banquet facilities set the stage for
+                    weddings, corporate events, and milestone occasions.</p>
+                <a href="https://elkhornbanquet.com/" target="_blank" rel="noopener noreferrer" class="card-btn">Visit
+                    Events Website &rarr;</a>
+            </article>
+
+            <!-- Card 3: Elkhorn Grill -->
+            <article class="card">
+                <div class="card-icon" aria-hidden="true">🍽️</div>
+                <h3>Elkhorn Grill</h3>
+                <p>Savor chef-crafted cuisine in a warm, country-club atmosphere. From lunch after a round to an evening
+                    dinner, our grill offers elevated comfort dining.</p>
+                <a href="https://elkhornbanquet.com/elkhorn-grill/" target="_blank" rel="noopener noreferrer"
+                    class="card-btn">Visit Grill Website &rarr;</a>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="contact" aria-labelledby="contact-heading">
+        <h2 id="contact-heading">Have a Question?</h2>
+        <p>Submit your inquiry and our team will respond promptly.</p>
+
+        <!-- GHL Form Embed Will Go Here -->
+        <div class="form-placeholder">
+            GHL FORM EMBED GOES HERE
+        </div>
+
+        <p class="sms-disclaimer">
+            By providing your phone number, you agree to receive SMS messages from Elkhorn Golf Course &amp; Banquets
+            regarding your inquiry. Message frequency varies. Msg &amp; data rates may apply. Reply STOP to unsubscribe.
+        </p>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer" aria-label="Site footer">
+        <div class="footer-inner">
+
+            <div class="footer-brand">
+                <p class="footer-name">Elkhorn Golf Course &amp; Banquets</p>
+                <address class="footer-address">
+                    123 Elkhorn Drive, City, State 00000<br />
+                    <a href="tel:+18005550000">1‑800‑555‑0000</a><br />
+                    <a href="mailto:info@elkhornexample.com">info@elkhornexample.com</a>
+                </address>
+            </div>
+
+            <nav class="footer-links" aria-label="Footer navigation">
+                <a href="privacy.html">Privacy Policy</a>
+                <span class="footer-divider" aria-hidden="true">|</span>
+                <a href="terms.html">Terms of Service</a>
+            </nav>
+
+            <p class="sms-disclosure">
+                No mobile information will be shared with third parties/affiliates for marketing/promotional purposes.
+                Information sharing to subcontractors in support services, such as customer service, is permitted. All
+                other use case categories exclude text messaging originator opt-in data and consent; this information
+                will not be shared with any third parties.
+            </p>
+
+            <p class="footer-copy">&copy; <span id="footer-year"></span> Elkhorn Golf Course &amp; Banquets. All rights
+                reserved.</p>
+
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('footer-year').textContent = new Date().getFullYear();
+    </script>
+
+</body>
+
+</html>
