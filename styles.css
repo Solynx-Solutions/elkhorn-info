@@ -672,6 +672,61 @@ p {
   border: none;
 }
 
+/* ── CTA Toggle Button ─────────────────────────── */
+
+.cta-btn {
+  display: inline-block;
+  padding: 14px 40px;
+  background-color: var(--clr-gold);
+  color: var(--clr-white);
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: 2px solid var(--clr-gold);
+  border-radius: 2px;
+  cursor: pointer;
+  transition:
+    background-color var(--ease),
+    border-color var(--ease),
+    color var(--ease),
+    transform var(--ease-move);
+}
+
+.cta-btn:hover {
+  background-color: transparent;
+  border-color: var(--clr-gold);
+  color: var(--clr-gold);
+  transform: translateY(-3px);
+}
+
+/* ── Form Visibility Toggle ────────────────────── */
+
+.form-hidden,
+.hidden-form {
+  display: none;
+}
+
+.form-visible,
+.visible-form {
+  display: block;
+  margin-top: 30px;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 
 
 /* ─────────────────────────────────────────────────
@@ -1086,4 +1141,15 @@ p {
 .hero-btn:hover {
   background: #d9bb7f;
   transform: translateY(-2px);
+}
+
+
+/* ── Form Visibility Toggle ────────────────────── */
+
+.hidden-form {
+  display: none;
+}
+
+.show-form {
+  display: block;
 }

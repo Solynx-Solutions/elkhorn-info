@@ -92,19 +92,41 @@
     </section>
 
     <!-- INQUIRY SECTION -->
-    <section id="contact" class="inquiry-section">
-        <div class="inquiry-container">
-            <h2>Inquire About Events</h2>
-            <p>Begin planning your experience at Elkhorn.</p>
+    <section id="contact">
 
-            <div class="form-wrapper">
-                <iframe src="https://api.solynx.solutions/widget/form/fontslNbGUHT8QIl7u8m"
-                    id="inline-fontslNbGUHT8QIl7u8m" title="A2P Website Form" frameborder="0"></iframe>
-            </div>
+        <button id="contactBtn" class="cta-btn">
+            Request Event Information
+        </button>
+
+        <div id="contactFormWrapper" class="hidden-form">
+
+            <iframe src="https://api.solynx.solutions/widget/form/fontslNbGUHT8QIl7u8m"
+                style="width:100%;height:100%;border:none;border-radius:3px" id="inline-fontslNbGUHT8QIl7u8m"
+                data-layout="{'id':'INLINE'}" data-trigger-type="alwaysShow" data-trigger-value=""
+                data-activation-type="alwaysActivated" data-activation-value="" data-deactivation-type="neverDeactivate"
+                data-deactivation-value="" data-form-name="A2P Website Form" data-height="1137"
+                data-layout-iframe-id="inline-fontslNbGUHT8QIl7u8m" data-form-id="fontslNbGUHT8QIl7u8m"
+                title="A2P Website Form">
+            </iframe>
+
         </div>
+
     </section>
 
     <script src="https://api.solynx.solutions/js/form_embed.js"></script>
+
+    <script>
+
+        document.getElementById("contactBtn")
+            .addEventListener("click", function () {
+
+                const form = document.getElementById("contactFormWrapper");
+
+                form.classList.toggle("show-form");
+
+            });
+
+    </script>
 
     <!-- FOOTER -->
     <footer class="site-footer" aria-label="Site footer">
