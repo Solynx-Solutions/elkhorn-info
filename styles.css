@@ -623,21 +623,89 @@ p {
 
 
 /* ─────────────────────────────────────────────────
+   8b. INQUIRY SECTION (embedded GHL form)
+───────────────────────────────────────────────── */
+
+.inquiry-section {
+  padding: 100px 20px;
+  background: #0f2f24;
+  /* deep green */
+  color: #ffffff;
+  text-align: center;
+}
+
+.inquiry-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.inquiry-container h2 {
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+}
+
+.inquiry-container p {
+  opacity: 0.8;
+  margin-bottom: 40px;
+}
+
+.inquiry-section h2 {
+  color: #ffffff;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+.inquiry-section p {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.form-wrapper {
+  background: #ffffff;
+  padding: 50px;
+  border-radius: 12px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+}
+
+.form-wrapper iframe {
+  width: 100%;
+  min-height: 900px;
+  border: none;
+}
+
+
+
+/* ─────────────────────────────────────────────────
    9. FOOTER
 ───────────────────────────────────────────────── */
+
 
 .site-footer {
   background-color: var(--clr-green-dark);
   color: var(--clr-text-light);
-  padding-block: 60px 36px;
-  padding-inline: 5%;
+  padding: 40px 20px;
+  text-align: center;
   font-size: 0.92rem;
 }
 
 .footer-inner {
-  max-width: 800px;
+  max-width: 600px;
   margin-inline: auto;
-  text-align: center;
+}
+
+.footer-inner p {
+  margin-bottom: 6px;
+  color: var(--clr-text-light);
+  font-size: 0.92rem;
+}
+
+.footer-inner a {
+  color: var(--clr-gold);
+  text-decoration: none;
+  transition: color var(--ease);
+}
+
+.footer-inner a:hover {
+  color: var(--clr-white);
 }
 
 /* ── Footer Brand ──────────────────────────────── */
@@ -929,53 +997,93 @@ p {
 .hero {
   position: relative;
   height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   overflow: hidden;
 }
 
 .hero-slides {
   position: absolute;
-  width: 100%;
-  height: 100%;
+  inset: 0;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom,
+      rgba(8, 38, 28, 0.28),
+      rgba(8, 38, 28, 0.22));
+  z-index: 1;
 }
 
 .slide {
   position: absolute;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
   opacity: 0;
-  transition: opacity 2s ease-in-out;
+  animation: fadeSlide 12s infinite;
+  transform: scale(1.08);
 }
 
-.slide.active {
-  opacity: 1;
+.slide:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.slide:nth-child(2) {
+  animation-delay: 4s;
+}
+
+.slide:nth-child(3) {
+  animation-delay: 8s;
+}
+
+@keyframes fadeSlide {
+  0% {
+    opacity: 0;
+    transform: scale(1.08);
+  }
+
+  15% {
+    opacity: 1;
+  }
+
+  35% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+  }
 }
 
 .hero-content {
   position: relative;
   z-index: 2;
-  text-align: center;
-  color: #fff;
-  top: 50%;
-  transform: translateY(-50%);
+  max-width: 900px;
 }
 
-.hero-content h1 {
-  font-size: 3.5rem;
-  font-family: 'Playfair Display', serif;
-}
-
-.hero-content p {
-  font-size: 1.3rem;
-  margin: 20px 0;
-}
-
-.primary-btn {
-  background: #c6a25e;
-  color: #fff;
+.hero-btn {
+  background: #c8a96a;
+  color: #0f2f24;
   padding: 14px 32px;
-  text-decoration: none;
-  font-weight: bold;
+  font-weight: 600;
   letter-spacing: 1px;
+  border: none;
+  transition: all 0.3s ease;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.hero-btn:hover {
+  background: #d9bb7f;
+  transform: translateY(-2px);
 }
