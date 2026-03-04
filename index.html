@@ -20,7 +20,10 @@
 
     <header class="site-header">
         <div class="container">
-            <div class="logo">Elkhorn Golf Course</div>
+            <div class="logo nav-logo">
+                <img src="assets/images/elkhorn-logo.png" alt="Elkhorn logo" class="nav-logo-img" />
+                Elkhorn Golf &bull; Grill &bull; Events
+            </div>
             <nav>
                 <a href="#destinations">Explore</a>
                 <a href="#contact">Contact</a>
@@ -98,7 +101,13 @@
             Request Event Information
         </button>
 
-        <div id="contactFormWrapper" class="hidden-form">
+    </section>
+
+    <!-- CONTACT MODAL -->
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+
+            <span class="close-modal" id="closeModal">&times;</span>
 
             <iframe src="https://api.solynx.solutions/widget/form/fontslNbGUHT8QIl7u8m"
                 style="width:100%;height:100%;border:none;border-radius:3px" id="inline-fontslNbGUHT8QIl7u8m"
@@ -110,21 +119,43 @@
             </iframe>
 
         </div>
-
-    </section>
+    </div>
 
     <script src="https://api.solynx.solutions/js/form_embed.js"></script>
 
     <script>
 
-        document.getElementById("contactBtn")
-            .addEventListener("click", function () {
+        const modal = document.getElementById("contactModal");
+        const openBtn = document.getElementById("contactBtn");
+        const closeBtn = document.getElementById("closeModal");
 
-                const form = document.getElementById("contactFormWrapper");
+        // Open modal
+        openBtn.addEventListener("click", function () {
+            modal.classList.add("modal-open");
+            document.body.style.overflow = "hidden";
+        });
 
-                form.classList.toggle("show-form");
+        // Close via X button
+        closeBtn.addEventListener("click", function () {
+            modal.classList.remove("modal-open");
+            document.body.style.overflow = "";
+        });
 
-            });
+        // Close by clicking the backdrop (outside modal-content)
+        modal.addEventListener("click", function (e) {
+            if (e.target === modal) {
+                modal.classList.remove("modal-open");
+                document.body.style.overflow = "";
+            }
+        });
+
+        // Close with Escape key
+        document.addEventListener("keydown", function (e) {
+            if (e.key === "Escape" && modal.classList.contains("modal-open")) {
+                modal.classList.remove("modal-open");
+                document.body.style.overflow = "";
+            }
+        });
 
     </script>
 
