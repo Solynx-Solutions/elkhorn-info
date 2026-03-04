@@ -206,42 +206,69 @@ p {
   overflow: hidden;
 }
 
-/* Slide stack ─ all slides fill the hero absolutely */
-.hero-slides {
+.hero-images {
   position: absolute;
-  inset: 0;
+  width: 100%;
+  height: 100%;
 }
 
-.slide {
+.hero-img {
   position: absolute;
-  inset: 0;
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   opacity: 0;
-  transition: opacity 1.4s ease-in-out;
-  animation: kenBurns 8s ease-in-out infinite alternate;
+  animation: heroSlide 12s infinite;
 }
 
-.slide.active {
-  opacity: 1;
+/* image timing */
+.img1 {
+  animation-delay: 0s;
 }
 
-@keyframes kenBurns {
-  from {
+.img2 {
+  animation-delay: 4s;
+}
+
+.img3 {
+  animation-delay: 8s;
+}
+
+@keyframes heroSlide {
+  0% {
+    opacity: 0;
     transform: scale(1);
   }
 
-  to {
-    transform: scale(1.08);
+  10% {
+    opacity: 1;
+  }
+
+  35% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+
+  45% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
   }
 }
 
-/* Cinematic gradient overlay – sits above the slides */
+/* Gradient overlay + text container */
 .hero-overlay {
   position: absolute;
   inset: 0;
-  z-index: 1;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-inline: 5%;
   background:
     linear-gradient(to bottom,
       rgba(22, 42, 33, 0.52) 0%,
@@ -262,8 +289,9 @@ p {
   padding-inline: 5%;
 }
 
+/* Text content inside overlay */
 
-.hero-content h1 {
+.hero-overlay h1 {
   color: var(--clr-white);
   font-size: clamp(2rem, 6vw, 3.6rem);
   letter-spacing: 0.03em;
@@ -271,12 +299,33 @@ p {
   text-shadow: 0 2px 24px rgba(0, 0, 0, 0.35);
 }
 
-.hero-content p {
+.hero-overlay p {
   color: rgba(245, 242, 234, 0.92);
   font-size: clamp(1rem, 2.4vw, 1.3rem);
   font-style: italic;
   letter-spacing: 0.04em;
   margin-bottom: var(--space-md);
+}
+
+/* Staggered fade for img1 / img2 / img3 */
+.hero-img.img1 {
+  animation-delay: 0s;
+  opacity: 1;
+  z-index: 1;
+}
+
+.hero-img.img2 {
+  animation-delay: 10s;
+  opacity: 0;
+  z-index: 0;
+  animation: heroFade 30s infinite;
+}
+
+.hero-img.img3 {
+  animation-delay: 20s;
+  opacity: 0;
+  z-index: 0;
+  animation: heroFade 30s infinite;
 }
 
 /* Primary CTA button */
