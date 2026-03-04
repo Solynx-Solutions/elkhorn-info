@@ -1308,8 +1308,6 @@ p {
 }
 
 .logo-image {
-  height: 40px;
-  width: auto;
-  display: block;
-  flex-shrink: 0;
+  height: 54px;
+  filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.8));
 }
