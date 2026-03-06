@@ -1124,7 +1124,7 @@ p {
   background-repeat: no-repeat;
   opacity: 0;
   transform: scale(1.05);
-animation: fadeSlide 12s infinite, slowZoom 12s infinite;
+  animation: fadeSlide 12s infinite, slowZoom 12s infinite;
 }
 
 .slide:nth-child(1) {
@@ -1160,6 +1160,11 @@ animation: fadeSlide 12s infinite, slowZoom 12s infinite;
   100% {
     opacity: 0;
   }
+}
+
+@keyframes slowZoom {
+  0% { transform: scale(1.05); }
+  100% { transform: scale(1.12); }
 }
 
 .hero-content {
