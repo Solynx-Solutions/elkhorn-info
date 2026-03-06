@@ -1406,6 +1406,62 @@ p {
 }
 
 /* ─────────────────────────────────────────────────
+   Guest Count Slider
+───────────────────────────────────────────────── */
+
+.guest-slider-wrap {
+  margin-top: 8px;
+}
+
+.guest-slider {
+  width: 100%;
+  appearance: none;
+  -webkit-appearance: none;
+  height: 6px;
+  border-radius: 4px;
+  background: #e3dfd6;
+  outline: none;
+  cursor: pointer;
+}
+
+.guest-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--clr-gold);
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(198, 167, 94, 0.45);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.guest-slider::-moz-range-thumb {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--clr-gold);
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 2px 8px rgba(198, 167, 94, 0.45);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.guest-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+  box-shadow: 0 4px 14px rgba(198, 167, 94, 0.6);
+}
+
+.guest-slider-value {
+  margin-top: 10px;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  color: var(--clr-green);
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+/* ─────────────────────────────────────────────────
    11. RESPONSIVE — INQUIRY FORM
 ───────────────────────────────────────────────── */
 

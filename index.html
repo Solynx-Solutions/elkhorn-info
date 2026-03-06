@@ -151,7 +151,13 @@
 
                 <div class="form-group">
                     <label>Estimated Guest Count</label>
-                    <input type="number" name="guest_count">
+                    <div class="guest-slider-wrap">
+                        <input type="range" min="10" max="500" step="5" value="100" name="guest_count" id="guestSlider"
+                            class="guest-slider">
+                        <div class="guest-slider-value">
+                            <span id="guestCountValue">100</span> guests
+                        </div>
+                    </div>
                 </div>
 
                 <div class="form-group">
@@ -211,6 +217,17 @@
             </nav>
         </div>
     </footer>
+
+    <script>
+        const slider = document.getElementById("guestSlider");
+        const output = document.getElementById("guestCountValue");
+
+        output.textContent = slider.value;
+
+        slider.oninput = function () {
+            output.textContent = this.value;
+        };
+    </script>
 
 </body>
 
