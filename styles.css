@@ -676,12 +676,15 @@ p {
 }
 
 .inquiry-container h2 {
-  font-size: 2.2rem;
-  margin-bottom: 10px;
+  color: var(--clr-green);
+  font-size: 2.6rem;
+  margin-bottom: 12px;
 }
 
 .inquiry-container p {
-  opacity: 0.8;
+  color: var(--clr-text-muted);
+  font-size: 1.15rem;
+  opacity: 0.9;
   margin-bottom: 40px;
 }
 
