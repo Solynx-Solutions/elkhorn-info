@@ -256,12 +256,12 @@ p {
 }
 
 .slide2 {
-  background-image: url("/assets/sunset.jpg");
+  background-image: url("/assets/events.jpg");
   animation-delay: 4s;
 }
 
 .slide3 {
-  background-image: url("/assets/events.jpg");
+  background-image: url("/assets/dining.jpg");
   animation-delay: 8s;
 }
 
