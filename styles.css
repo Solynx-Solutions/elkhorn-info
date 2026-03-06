@@ -1123,8 +1123,8 @@ p {
   background-position: center;
   background-repeat: no-repeat;
   opacity: 0;
-  animation: fadeSlide 12s infinite;
-  transform: scale(1.08);
+  transform: scale(1.05);
+animation: fadeSlide 12s infinite, slowZoom 12s infinite;
 }
 
 .slide:nth-child(1) {
