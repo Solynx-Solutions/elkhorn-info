@@ -1488,7 +1488,7 @@ p {
   display: flex;
   align-items: flex-start;
   gap: 10px;
-  margin-top: 10px;
+  margin-top: 12px;
   font-size: 13px;
   line-height: 1.4;
   color: #444;
@@ -1503,4 +1503,25 @@ p {
 
 .sms-consent-option span {
   flex: 1;
+}
+
+
+/* ─────────────────────────────────────────────────
+   13. EVENT FORM CONTAINER SPACING
+───────────────────────────────────────────────── */
+
+.event-form-container {
+  padding: 40px 40px 50px 40px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
+}
+
+.event-form-container button {
+  margin-top: 24px;
+}
+
+@media (max-width: 768px) {
+  .event-form-container {
+    padding: 28px 20px 36px 20px;
+  }
 }
