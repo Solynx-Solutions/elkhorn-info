@@ -709,8 +709,8 @@ p {
   text-align: left;
 }
 
-/* Input / select / textarea */
-.inquiry-form input,
+/* Input / select / textarea — exclude checkboxes */
+.inquiry-form input:not([type="checkbox"]),
 .inquiry-form select,
 .inquiry-form textarea {
   width: 100%;
@@ -724,7 +724,7 @@ p {
 }
 
 /* Premium focus effect */
-.inquiry-form input:focus,
+.inquiry-form input:not([type="checkbox"]):focus,
 .inquiry-form select:focus,
 .inquiry-form textarea:focus {
   outline: none;
