@@ -1482,17 +1482,25 @@ p {
 
 .sms-consent-group {
   margin-top: 20px;
-  font-size: 14px;
-  line-height: 1.5;
-  color: #444;
 }
 
 .sms-consent-option {
-  display: block;
-  margin-bottom: 14px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 10px;
+  font-size: 13px;
+  line-height: 1.4;
+  color: #444;
 }
 
 .sms-consent-option input {
-  margin-right: 10px;
+  margin-top: 4px;
   transform: scale(1.1);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.sms-consent-option span {
+  flex: 1;
 }
