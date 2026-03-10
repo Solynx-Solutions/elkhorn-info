@@ -1474,3 +1474,25 @@ p {
     padding: 35px 24px;
   }
 }
+
+
+/* ─────────────────────────────────────────────────
+   12. A2P SMS CONSENT CHECKBOXES
+───────────────────────────────────────────────── */
+
+.sms-consent-group {
+  margin-top: 20px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #444;
+}
+
+.sms-consent-option {
+  display: block;
+  margin-bottom: 14px;
+}
+
+.sms-consent-option input {
+  margin-right: 10px;
+  transform: scale(1.1);
+}
