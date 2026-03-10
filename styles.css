@@ -1539,3 +1539,29 @@ p {
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
   }
 }
+
+
+/* ─────────────────────────────────────────────────
+   14. FORM LEGAL LINKS
+───────────────────────────────────────────────── */
+
+.form-legal-links {
+  text-align: center;
+  margin-top: 14px;
+  font-size: 12px;
+  color: #666;
+}
+
+.form-legal-links a {
+  color: #666;
+  text-decoration: none;
+  margin: 0 6px;
+}
+
+.form-legal-links a:hover {
+  text-decoration: underline;
+}
+
+.form-legal-links span {
+  color: #999;
+}
