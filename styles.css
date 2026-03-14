@@ -755,6 +755,21 @@ p {
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
+/* ── Form Trust Indicator ──────────────────────── */
+
+.form-trust-indicator {
+  margin-top: 12px;
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.4;
+  color: #6b6b6b;
+  opacity: 0.95;
+}
+
+.form-trust-indicator .trust-lock {
+  margin-right: 6px;
+}
+
 /* ── CTA Toggle Button ─────────────────────────── */
 
 .cta-btn {
