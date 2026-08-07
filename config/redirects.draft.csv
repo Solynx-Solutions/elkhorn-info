@@ -1,0 +1,19 @@
+status,source,destination,http_status,notes
+draft,https://www.elkhorngc.com/,https://elkhorn.info/golf/,301,Do not activate
+draft,https://www.elkhorngc.com/book-a-tee-time/,https://elkhorn.info/tee-times/,301,Preserve booking intent
+draft,https://www.elkhorngc.com/newsletter/,https://elkhorn.info/newsletter/,301,Provider verification required
+draft,https://www.elkhorngc.com/course-information/,https://elkhorn.info/golf/course/,301,
+draft,https://www.elkhorngc.com/rates/,https://elkhorn.info/golf/rates/,301,
+draft,https://www.elkhorngc.com/golf-shop/,https://elkhorn.info/golf/pro-shop/,301,
+draft,https://www.elkhorngc.com/photo-gallery/,https://elkhorn.info/gallery/golf/,301,
+draft,https://www.elkhorngc.com/faqs/,https://elkhorn.info/golf/faqs/,301,
+draft,https://www.elkhorngc.com/membership/,https://elkhorn.info/golf/membership/,301,
+draft,https://www.elkhorngc.com/contact-us/,https://elkhorn.info/contact/,301,
+draft,https://elkhornbanquet.com/,https://elkhorn.info/events/,301,Do not activate
+draft,https://elkhornbanquet.com/wedding-and-banquet-center/,https://elkhorn.info/weddings/,301,
+draft,https://elkhornbanquet.com/elkhorn-grill/,https://elkhorn.info/grill/,301,
+draft,https://elkhornbanquet.com/facility,https://elkhorn.info/events/spaces/,301,Avoid existing redirect chain
+draft,https://elkhornbanquet.com/facility-2/,https://elkhorn.info/events/spaces/,301,
+draft,https://elkhornbanquet.com/photo-gallery/,https://elkhorn.info/gallery/events/,301,
+draft,https://elkhornbanquet.com/golf-tournaments/,https://elkhorn.info/golf/tournaments/,301,
+draft,https://elkhornbanquet.com/contact-us/,https://elkhorn.info/contact/,301,

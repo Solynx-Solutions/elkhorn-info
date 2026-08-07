@@ -1,0 +1,9 @@
+{
+  "name": "elkhorn-unified-site",
+  "private": true,
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "lint": "node scripts/validate.mjs",
+    "type-check": "node scripts/type-check.mjs"
+  }
+}
