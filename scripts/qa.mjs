@@ -24,7 +24,7 @@ const checks = [
   ['approved footer information architecture', ['Explore','Visit','Contact','Stay Connected','Website designed, built &amp; managed by'].every(v => home.includes(v))],
   ['department footer contact groups', ['/contact/#golf-contact','/contact/#grill-contact','/contact/#events-contact','/contact/#general-contact'].every(v => home.includes(v))],
   ['golf contextual CTAs', ['Book a Tee Time','Explore Membership','Plan a Golf Outing'].every(v => golf.includes(v))],
-  ['grill contextual CTAs', ['View Hours &amp; Menus','View Specials','Reservations'].every(v => grill.includes(v))],
+  ['grill contextual CTAs', ['View Hours & Menus','View Specials','Reservations'].every(v => grill.includes(v))],
   ['wedding contextual CTAs', ['Plan an Event','Explore Event Spaces','View Wedding Gallery'].every(v => weddings.includes(v))],
   ['contact routing groups', ['id="golf-contact"','id="grill-contact"','id="events-contact"','id="general-contact"'].every(v => contact.includes(v))],
   ['form labels and status', form.includes('for="first_name"') && form.includes('role="status"') && form.includes('aria-live="polite"')],
