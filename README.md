@@ -2,6 +2,8 @@
 
 Static, framework-neutral structural foundation for the future unified Elkhorn website.
 
+M2 applies the approved “Modern California Clubhouse Hospitality” visual direction, verified-content and media models, structured empty states, and development-only adapter preparation. See `docs/staging.md` for the preview contract.
+
 ## Commands
 
 - `npm run build` generates the complete site in `dist/`.

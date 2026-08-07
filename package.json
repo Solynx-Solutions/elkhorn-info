@@ -4,6 +4,7 @@
   "scripts": {
     "build": "node scripts/build.mjs",
     "lint": "node scripts/validate.mjs",
-    "type-check": "node scripts/type-check.mjs"
+    "type-check": "node scripts/type-check.mjs",
+    "qa": "node scripts/qa.mjs"
   }
 }

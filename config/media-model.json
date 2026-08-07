@@ -1,0 +1,10 @@
+{
+  "status": "development-only",
+  "fields": ["desktopImage", "mobileImage", "desktopVideo", "mobileVideo", "posterImage", "alt", "caption", "credit", "focalPoint", "reducedMotionFallback"],
+  "rules": {
+    "autoplayRequiresMuted": true,
+    "decorativeMediaUsesEmptyAlt": true,
+    "reducedMotionUsesPoster": true,
+    "mobileSourceOptional": true
+  }
+}

@@ -1,15 +1,22 @@
 const toggle = document.querySelector('.nav-toggle');
 const nav = document.querySelector('.primary-nav');
-toggle?.addEventListener('click', () => {
-  const open = toggle.getAttribute('aria-expanded') === 'true';
-  toggle.setAttribute('aria-expanded', String(!open));
-  nav?.toggleAttribute('data-open', !open);
-});
+const closeButton = document.querySelector('.drawer-close');
+const backdrop = document.querySelector('[data-drawer-backdrop]');
+const header = document.querySelector('[data-site-header]');
+const focusable = () => [...(nav?.querySelectorAll('a,button') ?? [])];
+function setMenu(open) { toggle?.setAttribute('aria-expanded', String(open)); nav?.toggleAttribute('data-open', open); backdrop?.toggleAttribute('hidden', !open); document.body.toggleAttribute('data-menu-open', open); if (open) closeButton?.focus(); else toggle?.focus(); }
+toggle?.addEventListener('click', () => setMenu(toggle.getAttribute('aria-expanded') !== 'true'));
+closeButton?.addEventListener('click', () => setMenu(false));
+backdrop?.addEventListener('click', () => setMenu(false));
 document.addEventListener('keydown', event => {
-  if (event.key === 'Escape' && toggle?.getAttribute('aria-expanded') === 'true') {
-    toggle.setAttribute('aria-expanded', 'false'); nav?.removeAttribute('data-open'); toggle.focus();
-  }
+  if (event.key === 'Escape' && toggle?.getAttribute('aria-expanded') === 'true') setMenu(false);
+  if (event.key === 'Tab' && toggle?.getAttribute('aria-expanded') === 'true') { const items=focusable(), first=items[0], last=items.at(-1); if(event.shiftKey&&document.activeElement===first){event.preventDefault();last.focus()} else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first.focus()} }
 });
+const updateHeader = () => { header?.toggleAttribute('data-scrolled', window.scrollY > 24); };
+updateHeader(); window.addEventListener('scroll', updateHeader, { passive: true });
+if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  document.querySelectorAll('.responsive-video video').forEach(video => video.play().catch(() => {}));
+}
 const slider = document.querySelector('#guestSlider');
 const output = document.querySelector('#guestCountValue');
 slider?.addEventListener('input', () => { output.value = slider.value; output.textContent = slider.value; });

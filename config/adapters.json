@@ -1,0 +1,9 @@
+{
+  "environment": "development",
+  "membershipInquiry": { "enabled": false, "provider": null },
+  "tournamentInquiry": { "enabled": false, "provider": null },
+  "newsletter": { "enabled": false, "provider": null },
+  "calendar": { "enabled": false, "provider": null },
+  "eventData": { "enabled": false, "provider": null },
+  "tripleseat": { "enabled": false, "mode": "preserve-existing-routing" }
+}

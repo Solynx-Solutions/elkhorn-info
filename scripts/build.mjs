@@ -16,15 +16,15 @@ const routes = [
   ['/golf/faqs/', 'Golf FAQs', 'Golf FAQ shell awaiting verified policies.', 'golf'],
   ['/tee-times/', 'Tee Times', 'Continue to the existing golf booking experience.', 'tee-times'],
   ['/grill/', 'Grill', 'The structural home for Elkhorn Grill.', 'grill'],
-  ['/grill/menu/', 'Menu', 'Menu shell awaiting a verified accessible menu.', 'grill'],
-  ['/grill/specials/', 'Specials', 'Specials shell awaiting verified current offers.', 'grill'],
-  ['/grill/reservations/', 'Reservations', 'Reservation information shell awaiting verified workflow details.', 'grill'],
+  ['/grill/menu/', 'Menu', 'Menu shell awaiting a verified accessible menu.', 'menu'],
+  ['/grill/specials/', 'Specials', 'Specials shell awaiting verified current offers.', 'specials'],
+  ['/grill/reservations/', 'Reservations', 'Reservation information shell awaiting verified workflow details.', 'reservations'],
   ['/weddings/', 'Weddings', 'Wedding planning information and inquiry foundation.', 'weddings'],
   ['/events/', 'Events', 'Event planning information foundation.', 'events'],
   ['/events/banquets/', 'Banquets', 'Banquet planning information foundation.', 'events'],
   ['/events/corporate-events/', 'Corporate Events', 'Corporate event planning information foundation.', 'events'],
   ['/events/celebrations/', 'Celebrations', 'Celebration planning information foundation.', 'events'],
-  ['/events/spaces/', 'Event Spaces', 'Venue spaces shell awaiting verified capacities and details.', 'events'],
+  ['/events/spaces/', 'Event Spaces', 'Venue spaces shell awaiting verified capacities and details.', 'venue-spaces'],
   ['/events/request-information/', 'Request Event Information', 'Contact the existing Elkhorn event inquiry workflow.', 'event-form'],
   ['/gallery/', 'Gallery', 'Gallery index awaiting approved media assets.', 'gallery'],
   ['/gallery/golf/', 'Golf Gallery', 'Golf gallery shell awaiting approved media assets.', 'gallery'],
@@ -49,20 +49,23 @@ const nav = [
 const esc = value => value.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('"', '&quot;');
 const link = (href, label) => `<a href="${href}">${label}</a>`;
 
-function header() {
+function header(type) {
+  const tone = ['grill', 'contact'].includes(type) ? 'dark' : 'light';
   return `<a class="skip-link" href="#main-content">Skip to main content</a>
-<header class="site-header" data-site-header>
+<div class="notice-region" data-notice-region hidden role="status" aria-live="polite"></div>
+<header class="site-header" data-site-header data-scroll-tone="${tone}">
   <div class="shell header-inner">
     <a class="brand" href="/" aria-label="Elkhorn home"><img src="/assets/Elkhorn.png" alt="" width="54" height="54"><span>Elkhorn</span></a>
-    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation"><span class="sr-only">Toggle navigation</span><span aria-hidden="true">Menu</span></button>
-    <nav id="primary-navigation" class="primary-nav" aria-label="Primary navigation">${nav.map(([href, label]) => link(href, label)).join('')}</nav>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation"><span class="sr-only">Open navigation</span><span aria-hidden="true">Menu</span></button>
+    <div class="drawer-backdrop" data-drawer-backdrop hidden></div>
+    <nav id="primary-navigation" class="primary-nav" aria-label="Primary navigation"><button class="drawer-close" type="button"><span aria-hidden="true">Close</span><span class="sr-only">Close navigation</span></button>${nav.map(([href, label]) => link(href, label)).join('')}</nav>
     <div class="header-actions"><a class="button button-small" href="/tee-times/">Book a Tee Time</a><a class="button button-small button-outline" href="/events/request-information/">Plan an Event</a></div>
   </div>
 </header>`;
 }
 
 function footer() {
-  return `<footer class="site-footer"><div class="shell footer-grid"><div><a class="footer-brand" href="/">Elkhorn</a><p>Golf, Grill &amp; Events</p></div><nav aria-label="Footer navigation">${link('/about/', 'About')}${link('/gallery/', 'Gallery')}${link('/newsletter/', 'Newsletter')}${link('/downloads/', 'Downloads')}</nav><nav aria-label="Legal navigation">${link('/privacy/', 'Privacy')}${link('/terms/', 'Terms')}${link('/accessibility/', 'Accessibility')}</nav></div><div class="shell footer-bottom"><p>Development shell — business information pending verification.</p></div></footer>`;
+  return `<footer class="site-footer"><div class="shell footer-grid"><div><a class="footer-brand" href="/">Elkhorn</a><p>A unified foundation for Elkhorn Golf Club, Elkhorn Grill, and Elkhorn Banquet Facility.</p><div class="footer-ctas"><a href="/tee-times/">Book a Tee Time</a><a href="/events/request-information/">Plan an Event</a></div></div><nav aria-label="Explore Elkhorn"><strong>Explore</strong>${link('/golf/', 'Golf')}${link('/grill/', 'Grill')}${link('/weddings/', 'Weddings')}${link('/events/', 'Events')}${link('/calendar/', 'Calendar')}</nav><nav aria-label="Information"><strong>Information</strong>${link('/about/', 'About')}${link('/gallery/', 'Gallery')}${link('/contact/', 'Contact')}${link('/newsletter/', 'Email Updates')}${link('/downloads/', 'Downloads')}</nav><nav aria-label="Legal navigation"><strong>Legal</strong>${link('/privacy/', 'Privacy')}${link('/terms/', 'Terms')}${link('/accessibility/', 'Accessibility')}</nav></div><div class="shell footer-bottom"><p>Development preview — operational details remain subject to verification.</p><p>Website designed, built &amp; managed by <a href="https://solynx.solutions/" rel="external">SOLYNX</a></p></div></footer>`;
 }
 
 const placeholderCards = {
@@ -74,6 +77,33 @@ const placeholderCards = {
 
 function cards(items) {
   return `<section class="section" aria-labelledby="explore-heading"><div class="shell"><h2 id="explore-heading">Explore</h2><div class="card-grid">${items.map(([label, href]) => `<article class="card"><h3>${label}</h3><p>Controlled page shell ready for verified content.</p>${link(href, `View ${label}`)}</article>`).join('')}</div></div></section>`;
+}
+
+function responsiveMedia({ desktop, mobile = desktop, desktopVideo = '', mobileVideo = '', poster = desktop, alt = '', eager = false }) {
+  const fallback = `<picture><source media="(max-width: 40rem)" srcset="${mobile}"><img src="${desktop}" alt="${esc(alt)}" loading="${eager ? 'eager' : 'lazy'}" width="1200" height="800"></picture>`;
+  if (!desktopVideo) return fallback;
+  return `<div class="responsive-video"><video muted loop playsinline preload="metadata" poster="${poster}" aria-label="${esc(alt)}"><source media="(max-width: 40rem)" src="${mobileVideo || desktopVideo}"><source src="${desktopVideo}"></video><noscript>${fallback}</noscript></div>`;
+}
+
+function media({ desktop, mobile = desktop, desktopVideo = '', mobileVideo = '', poster = desktop, alt = '', eyebrow = '', title = '', body = '', href = '', cta = '' }) {
+  return `<article class="feature">${responsiveMedia({desktop,mobile,desktopVideo,mobileVideo,poster,alt})}<div class="feature-copy">${eyebrow ? `<p class="eyebrow">${eyebrow}</p>` : ''}<h2>${title}</h2><p>${body}</p>${href ? `<a class="text-link" href="${href}">${cta}</a>` : ''}</div></article>`;
+}
+
+function emptyState(title, body, action = '') {
+  return `<div class="empty-state" role="status"><span class="empty-icon" aria-hidden="true">◇</span><h3>${title}</h3><p>${body}</p>${action}</div>`;
+}
+
+function homepage() {
+  return `<section class="home-hero media-hero" data-hero>
+  <picture class="media-poster"><source media="(max-width:40rem)" srcset="/assets/hero.jpg"><img src="/assets/hero.jpg" alt="Golf course landscape at Elkhorn" width="1800" height="1100"></picture>
+  <div class="hero-shade"></div><div class="shell hero-copy"><p class="eyebrow">Stockton, California</p><h1>Golf, dining, and gatherings in one destination.</h1><p>Discover the structural preview for Elkhorn Golf Club, Elkhorn Grill, and Elkhorn Banquet Facility.</p><div class="cta-row"><a class="button" href="/tee-times/">Book a Tee Time</a><a class="button button-light" href="/events/request-information/">Plan an Event</a></div></div></section>
+  <nav class="conversion-rail" aria-label="Quick actions"><div class="shell"><a href="/tee-times/"><span>Play</span><strong>Book a Tee Time</strong></a><a href="/grill/"><span>Dine</span><strong>View Hours &amp; Menus</strong></a><a href="/events/request-information/"><span>Gather</span><strong>Plan an Event</strong></a></div></nav>
+  <section class="section story-stack" aria-label="Elkhorn experiences"><div class="shell">${media({desktop:'/assets/golf.jpg',alt:'Golf course at Elkhorn',eyebrow:'Elkhorn Golf Club',title:'A place to play',body:'Elkhorn has operated since December 1995. Explore course, membership, tournament, and booking pathways while verified details are prepared.',href:'/golf/',cta:'Explore Golf'})}${media({desktop:'/assets/dining.jpg',alt:'Dining at Elkhorn Grill',eyebrow:'Elkhorn Grill',title:'A place to dine',body:'The Grill experience will bring accessible HTML-first menus, current specials, and reservation guidance together once each detail is verified.',href:'/grill/',cta:'Explore the Grill'})}${media({desktop:'/assets/events.jpg',alt:'Event setting at Elkhorn',eyebrow:'Weddings & Events',title:'A place to gather',body:'Wedding, banquet, celebration, and corporate-event journeys now share a clear planning foundation without publishing unverified capacities or packages.',href:'/weddings/',cta:'Explore Weddings & Events'})}</div></section>
+  <section class="section section-dark"><div class="shell split"><div><p class="eyebrow">Groups & Outings</p><h2>Corporate events and golf tournaments</h2><p>Dedicated pathways support future verified group experiences and development-only inquiry preparation.</p></div><div class="stacked-actions"><a class="button" href="/events/corporate-events/">Corporate Events</a><a class="button button-light" href="/golf/tournaments/">Golf Tournaments</a></div></div></section>
+  <section class="section"><div class="shell two-up"><div><p class="eyebrow">Upcoming Public Events</p><h2>What’s happening</h2>${emptyState('Events are being prepared','Public-event availability has not yet been verified. This space will show approved events when the calendar source is connected.',link('/calendar/','Visit the calendar'))}</div><div><p class="eyebrow">Membership</p><h2>Make Elkhorn your home course</h2><p>Membership plan models are ready for verified benefits, terms, and pricing.</p><a class="text-link" href="/golf/membership/">Explore Membership</a></div></div></section>
+  <section class="section section-limestone"><div class="shell"><p class="eyebrow">Guest Stories</p><h2>Testimonials</h2>${emptyState('Stories awaiting approval','No testimonial will appear until its wording, attribution, and publishing permission are verified.')}</div></section>
+  <section class="section"><div class="shell"><div class="section-heading"><div><p class="eyebrow">Gallery</p><h2>See Elkhorn</h2></div><a class="text-link" href="/gallery/">View Gallery</a></div>${emptyState('Gallery curation in progress','Approved photography will be organized by golf, Grill, weddings, and events.')}</div></section>
+  <section class="section contact-band"><div class="shell two-up"><div><p class="eyebrow">Visit</p><h2>Contact and directions</h2><p>Verified phone routing, department emails, and public hours are still being confirmed.</p><a class="button button-outline-dark" href="/contact/">Contact Elkhorn</a></div><div><p class="eyebrow">Email Updates</p><h2>Stay connected</h2><p>The newsletter interface is prepared but remains inactive until its provider and consent flow are approved.</p><a class="button" href="/newsletter/">Email Updates</a></div></div></section>`;
 }
 
 function eventForm() {
@@ -92,20 +122,37 @@ function eventForm() {
 }
 
 function bodyFor(type) {
-  if (placeholderCards[type]) return cards(placeholderCards[type]);
-  if (type === 'home') return `<section class="section"><div class="shell"><h2>One destination. Clear paths.</h2><div class="card-grid"><article class="card"><h3>Golf</h3><p>Course, membership, tournaments, and tee-time pathways.</p>${link('/golf/', 'Explore Golf')}</article><article class="card"><h3>Grill</h3><p>Menus, specials, and reservation pathways.</p>${link('/grill/', 'Explore the Grill')}</article><article class="card"><h3>Weddings &amp; Events</h3><p>Planning pathways for gatherings and celebrations.</p>${link('/events/', 'Plan an Event')}</article></div></div></section>`;
+  if (placeholderCards[type] && !['golf', 'grill', 'gallery'].includes(type)) return cards(placeholderCards[type]);
+  if (type === 'home') return homepage();
   if (type === 'tee-times') return `<section class="section"><div class="shell narrow"><h2>Existing booking experience</h2><p>Tee-time booking remains an external dependency for M1. No booking workflow has been replaced.</p><a class="button" href="https://www.elkhorngc.com/book-a-tee-time/" rel="external">Continue to Tee-Time Booking</a></div></section>`;
   if (type === 'event-form') return eventForm();
+  if (type === 'golf') return `<section class="section"><div class="shell">${media({desktop:'/assets/golf.jpg',alt:'Golf course at Elkhorn Golf Club',eyebrow:'Elkhorn Golf Club',title:'A modern home for the golf experience',body:'This exemplar combines photography, course pathways, membership, tournaments, and the preserved EZLinks booking dependency. Rates and policies remain intentionally empty.',href:'/tee-times/',cta:'Book a Tee Time'})}</div></section>${cards(placeholderCards.golf)}`;
+  if (type === 'weddings') return `<section class="section"><div class="shell">${media({desktop:'/assets/events.jpg',alt:'Wedding event setting at Elkhorn',eyebrow:'Weddings',title:'A foundation for meaningful celebrations',body:'This exemplar demonstrates photography-led storytelling, contextual planning actions, and neutral content while packages and capacities await verification.',href:'/events/request-information/',cta:'Request Information'})}</div></section>`;
+  if (type === 'contact') return `<section class="section"><div class="shell two-up"><div><p class="eyebrow">Contact</p><h2>Choose the right path</h2><p>Phone numbers and department emails remain intentionally unpublished until routing is verified.</p><div class="card-grid compact"><a class="card action-card" href="/golf/">Golf questions</a><a class="card action-card" href="/grill/">Grill questions</a><a class="card action-card" href="/events/request-information/">Event questions</a></div></div>${emptyState('Location details under review','Directions and address presentation will be completed after the Controller approves the canonical business information.')}</div></section>`;
+  if (type === 'gallery') return `<section class="section"><div class="shell">${emptyState('Approved photography coming soon','This accessible gallery state contains no invented imagery claims. Media models support category, alt text, focal point, credit, and responsive sources.')}</div></section>`;
+  if (type === 'calendar') return `<section class="section"><div class="shell narrow">${emptyState('No verified public events to display','The calendar adapter is development-only and will remain inactive until its provider and event feed are approved.')}</div></section>`;
   if (type === 'privacy') return `<section class="section"><div class="shell narrow policy-content">${privacyContent}</div></section>`;
   if (type === 'terms') return `<section class="section"><div class="shell narrow policy-content">${termsContent}</div></section>`;
-  const inquiryTypes = new Set(['membership', 'tournaments', 'newsletter', 'calendar', 'contact']);
+  if (type === 'grill') return `<section class="section"><div class="shell">${media({desktop:'/assets/dining.jpg',alt:'Dining table at Elkhorn Grill',eyebrow:'Elkhorn Grill',title:'Warm clubhouse dining',body:'This exemplar prioritizes current, accessible HTML menu content and contextual actions. Hours, menus, specials, and reservation details remain intentionally unpopulated.',href:'/grill/menu/',cta:'View the Menu Framework'})}</div></section>`;
+  if (type === 'menu') return `<section class="section"><div class="shell narrow">${emptyState('Menu details are being verified','The final menu will be published as accessible HTML, with approved downloadable assets offered secondarily.')}</div></section>`;
+  if (type === 'specials') return `<section class="section"><div class="shell narrow">${emptyState('No verified specials to display','Offers and promotions will remain empty until their dates, terms, and approval status are confirmed.')}</div></section>`;
+  if (type === 'reservations') return `<section class="section"><div class="shell narrow">${emptyState('Reservation details are being verified','No reservation system, phone number, policy, or hours will be published until approved.')}</div></section>`;
+  if (type === 'venue-spaces') return `<section class="section"><div class="shell">${media({desktop:'/assets/events.jpg',alt:'Event room setting at Elkhorn',eyebrow:'Venue Spaces',title:'Flexible foundations for gatherings',body:'This exemplar supports future verified space names, layouts, capacities, accessibility details, and responsive media without inventing those values.',href:'/events/request-information/',cta:'Request Information'})}</div></section>`;
+  if (type === 'membership') return `<section class="section"><div class="shell narrow"><p class="eyebrow">Membership</p><h2>Plans designed for verified details</h2>${emptyState('Membership information is being verified','Plan names, benefits, pricing, terms, and inquiry routing will remain empty until approved.',link('/contact/','Contact pathways'))}</div></section>`;
+  if (type === 'tournaments') return `<section class="section"><div class="shell narrow"><p class="eyebrow">Golf Tournaments</p><h2>Outing planning foundation</h2>${emptyState('Tournament details are being prepared','Package details, capacities, policies, and development-only inquiry routing require approval.')}</div></section>`;
+  if (type === 'newsletter') return `<section class="section"><div class="shell narrow">${emptyState('Email signup is not yet active','The provider, consent language, audience, and data routing must be approved before signup is enabled.')}</div></section>`;
+  if (type === 'downloads') return `<section class="section"><div class="shell narrow">${emptyState('No approved downloads yet','Accessible scorecards, menus, packages, and other assets will appear only after review.')}</div></section>`;
+  if (type === 'about') return `<section class="section"><div class="shell narrow"><p class="eyebrow">Since 1995</p><h2>A shared destination with distinct experiences</h2><p>Elkhorn has operated since December 1995. The current identities—Elkhorn Golf Club, Elkhorn Grill, and Elkhorn Banquet Facility—are being brought into one clear digital foundation.</p></div></section>`;
+  if (type === 'accessibility') return `<section class="section"><div class="shell narrow"><h2>Accessibility foundation</h2><p>This development site targets WCAG 2.2 AA through semantic structure, keyboard access, visible focus, reduced-motion support, touch-friendly controls, form feedback, and accessible empty states.</p><p>An approved accessibility contact method is still required.</p></div></section>`;
+  const inquiryTypes = new Set(['contact']);
   return `<section class="section"><div class="shell narrow"><h2>Foundation ready</h2><p>${inquiryTypes.has(type) ? 'The integration interface is defined as an inactive placeholder until its provider, routing, consent, and verified content are approved.' : 'This page intentionally contains no unverified pricing, hours, menus, capacities, staff, awards, testimonials, or policies.'}</p><div class="notice" role="note"><strong>Status:</strong> Awaiting verified content and Agent 07 visual direction.</div></div></section>`;
 }
 
 function page(route, title, description, type) {
   const canonical = `${siteUrl}${route}`;
   const structured = { '@context': 'https://schema.org', '@type': 'WebPage', name: title, url: canonical, isPartOf: { '@type': 'WebSite', name: 'Elkhorn', url: `${siteUrl}/` } };
-  return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(title)} | Elkhorn</title><meta name="description" content="${esc(description)}"><link rel="canonical" href="${canonical}"><meta property="og:type" content="website"><meta property="og:title" content="${esc(title)} | Elkhorn"><meta property="og:description" content="${esc(description)}"><meta property="og:url" content="${canonical}"><meta name="twitter:card" content="summary"><link rel="stylesheet" href="/assets/site.css"><script type="application/ld+json">${JSON.stringify(structured).replaceAll('<', '\\u003c')}</script><script src="/assets/site.js" defer></script></head><body>${header()}<main id="main-content"><section class="page-hero"><div class="shell narrow"><p class="eyebrow">Elkhorn Golf, Grill &amp; Events</p><h1>${esc(title)}</h1><p>${esc(description)}</p><div class="cta-row"><a class="button" href="/tee-times/">Book a Tee Time</a><a class="button button-outline-dark" href="/events/request-information/">Plan an Event</a><a class="text-link" href="/grill/">View Hours &amp; Menus</a></div></div></section>${bodyFor(type)}</main>${footer()}</body></html>`;
+  const hero = type === 'home' ? '' : `<section class="page-hero"><div class="shell narrow"><p class="eyebrow">Elkhorn</p><h1>${esc(title)}</h1><p>${esc(description)}</p><div class="cta-row"><a class="button" href="/tee-times/">Book a Tee Time</a><a class="button button-outline-dark" href="/events/request-information/">Plan an Event</a><a class="text-link" href="/grill/">View Hours &amp; Menus</a></div></div></section>`;
+  return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#17372E"><title>${esc(title)} | Elkhorn</title><meta name="description" content="${esc(description)}"><link rel="canonical" href="${canonical}"><meta property="og:type" content="website"><meta property="og:title" content="${esc(title)} | Elkhorn"><meta property="og:description" content="${esc(description)}"><meta property="og:url" content="${canonical}"><meta name="twitter:card" content="summary"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap" rel="stylesheet"><link rel="stylesheet" href="/assets/site.css"><script type="application/ld+json">${JSON.stringify(structured).replaceAll('<', '\\u003c')}</script><script src="/assets/site.js" defer></script></head><body data-page="${type}">${header(type)}<main id="main-content">${hero}${bodyFor(type)}</main>${footer()}</body></html>`;
 }
 
 const extractMain = html => html.match(/<main[^>]*>([\s\S]*?)<\/main>/i)?.[1] ?? '<h2>Policy content unavailable</h2>';

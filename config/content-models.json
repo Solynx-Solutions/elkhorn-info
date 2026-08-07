@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "status": "development-only",
+  "models": {
+    "golfRate": ["name", "audience", "amount", "currency", "effectiveDate", "terms", "verifiedBy", "verifiedAt"],
+    "membershipPlan": ["name", "summary", "benefits", "price", "terms", "inquiryState", "verifiedBy", "verifiedAt"],
+    "menu": ["name", "sections", "dietaryLegend", "effectiveDate", "downloadAsset", "verifiedBy", "verifiedAt"],
+    "special": ["title", "summary", "startAt", "endAt", "terms", "status", "verifiedBy", "verifiedAt"],
+    "venueSpace": ["name", "summary", "capacity", "layouts", "media", "verifiedBy", "verifiedAt"],
+    "event": ["title", "summary", "startAt", "endAt", "location", "ticketUrl", "status", "verifiedBy", "verifiedAt"],
+    "testimonial": ["quote", "attribution", "occasion", "permissionStatus", "verifiedBy", "verifiedAt"],
+    "galleryItem": ["category", "alt", "caption", "credit", "media", "permissionStatus", "verifiedBy", "verifiedAt"],
+    "downloadAsset": ["title", "description", "fileUrl", "mimeType", "fileSize", "accessibleAlternative", "effectiveDate", "verifiedBy", "verifiedAt"]
+  },
+  "records": []
+}
