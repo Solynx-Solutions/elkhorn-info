@@ -1,0 +1,19 @@
+{
+  "status": "development-only",
+  "safeTypes": ["WebPage", "WebSite", "BreadcrumbList", "ItemList"],
+  "deferredTypes": ["LocalBusiness", "Restaurant", "GolfCourse", "Event", "Offer", "Product"],
+  "rules": {
+    "requireVerificationBeforeBusinessFacts": true,
+    "requireVerificationBeforeOffers": true,
+    "requireVerificationBeforeEventPublication": true,
+    "requireApprovedCanonicalBeforeFinalPublish": true,
+    "allowDevelopmentBreadcrumbs": true,
+    "allowDevelopmentItemLists": true
+  },
+  "models": {
+    "breadcrumb": ["position", "name", "item"],
+    "pageEntity": ["name", "url", "family", "verificationState"],
+    "contactRoute": ["department", "channel", "destination", "verifiedBy", "verifiedAt"],
+    "conversionEvent": ["name", "route", "intent", "environment"]
+  }
+}
