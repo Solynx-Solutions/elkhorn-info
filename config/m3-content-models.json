@@ -1,0 +1,14 @@
+{
+  "status": "development-only",
+  "models": {
+    "departmentContact": ["department", "phone", "email", "hours", "routingOwner", "verifiedBy", "verifiedAt"],
+    "faqItem": ["question", "answer", "category", "effectiveDate", "verifiedBy", "verifiedAt"],
+    "golfCourseDetail": ["label", "value", "effectiveDate", "verifiedBy", "verifiedAt"],
+    "reservationPolicy": ["channel", "instructions", "terms", "effectiveDate", "verifiedBy", "verifiedAt"],
+    "newsletterConfig": ["provider", "audience", "consentCopy", "privacyUrl", "enabled", "verifiedBy", "verifiedAt"],
+    "calendarConfig": ["provider", "feedUrl", "timezone", "enabled", "verifiedBy", "verifiedAt"],
+    "galleryCollection": ["name", "category", "items", "permissionStatus", "verifiedBy", "verifiedAt"],
+    "testimonialCollection": ["name", "items", "permissionStatus", "verifiedBy", "verifiedAt"]
+  },
+  "records": []
+}
