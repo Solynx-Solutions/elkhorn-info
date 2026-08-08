@@ -1,0 +1,24 @@
+{
+  "status": "client-facing-non-production-concept",
+  "brand": {
+    "name": "Elkhorn Golf, Grill & Events",
+    "positioning": "Where Stockton Plays, Gathers & Celebrates.",
+    "provisional": true
+  },
+  "pillars": ["Play", "Gather", "Celebrate"],
+  "presentationRoutes": ["/", "/golf/", "/grill/", "/weddings/", "/events/spaces/", "/contact/"],
+  "media": {
+    "hero": "/assets/hero.jpg",
+    "golf": "/assets/golf.jpg",
+    "grill": "/assets/dining.jpg",
+    "events": "/assets/events.jpg",
+    "sunset": "/assets/sunset.jpg"
+  },
+  "safety": {
+    "production": false,
+    "operationalFactsRequired": false,
+    "aiPropertyPhotography": false,
+    "redirectsActive": false,
+    "newLiveIntegrations": false
+  }
+}
