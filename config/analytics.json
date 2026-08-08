@@ -1,0 +1,23 @@
+{
+  "status": "development-only",
+  "provider": null,
+  "networkDispatchEnabled": false,
+  "eventNamespace": "elkhorn",
+  "events": [
+    "page_view_dev",
+    "cta_click",
+    "tee_time_intent",
+    "event_planning_intent",
+    "grill_menu_intent",
+    "membership_intent",
+    "tournament_intent",
+    "newsletter_intent",
+    "contact_route_intent",
+    "event_inquiry_submit_intent"
+  ],
+  "rules": {
+    "noExternalAnalyticsVendor": true,
+    "noPIIInEventPayloads": true,
+    "developmentPreviewOnly": true
+  }
+}
