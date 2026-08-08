@@ -1,14 +1,19 @@
 # Staging preparation
 
-M2 prepares static output in `dist/` for a future preview environment. It does not define or alter a production alias, DNS record, redirect, webhook, booking path, or live automation.
+M2 and M3 prepare static output in `dist/` for protected preview use. They do not define or alter a production alias, DNS record, redirect, webhook, booking path, or live automation.
 
-## Proposed preview contract
+## Current preview contract
 
-- Build command: bundled Node.js running `scripts/build.mjs`
+- Build command: `npm run build && npm run lint && npm run type-check && npm run qa`
 - Output directory: `dist`
-- Environment: `ELKHORN_ENV=staging`
-- Access: private or protected preview URL
+- Environment: development / preview only
 - Canonicals: production-domain values remain architectural placeholders until final canonical approval
-- Integrations: only the preserved LeadConnector form destination is present; every new adapter remains disabled
+- Integrations: preserved LeadConnector form destination and external tee-time path only; every new adapter remains disabled
+- Analytics: local development event queue only; no provider and no network dispatch
+- Structured data: WebPage/BreadcrumbList-safe development schemas only; business, offer, product, and event schemas deferred pending verification
 
-Before creating staging, confirm hosting ownership, preview-access policy, environment-variable handling, and whether preview pages should emit `noindex` headers.
+## M3 preview status
+
+The branch preview successfully builds all 33 canonical routes and passes M2 + M3 QA. Manual authenticated browser rendering remains required before any future merge to `main` because the available preview-fetch integration could not open the protected preview URL in this session.
+
+Before production authorization, confirm final canonical domain, approved business/contact facts, asset rights, provider ownership for calendar/newsletter, cross-browser visual QA, accessibility review, performance review, redirect activation plan, and production integration ownership.
