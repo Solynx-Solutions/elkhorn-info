@@ -53,6 +53,14 @@ for (const route of routes) {
   let html = await readFile(file, 'utf8');
   html = html.replace('</head>', '<link rel="stylesheet" href="/assets/poc-premium.css"></head>');
   for (const [from, to] of replacements) html = html.split(from).join(to);
+  html = html
+    .replace(/\bfuture members\b/gi, 'prospective members')
+    .replace(/\bfuture\s+/gi, '')
+    .replace(/\bapproved\s+/gi, '')
+    .replace(/\bfinal\s+/gi, '')
+    .replace(/\bthe concept\b/gi, 'the experience')
+    .replace(/\bthe POC\b/gi, 'the experience')
+    .replace(/\bfinished experience\b/gi, 'experience');
   if (route === '/') {
     html = html.replace(/(<section class="poc-hero[\s\S]*?<div class="poc-actions">)([\s\S]*?)(<\/div>)/, (_, start, actions, end) => `${start}${actions}<a class="poc-button poc-button-light" href="/grill/menu/">View Hours & Menus</a>${end}`);
     html = html.replace('</nav>', `</nav>${proof}${editorial}`);
