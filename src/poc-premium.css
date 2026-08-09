@@ -1,0 +1,29 @@
+/* Competitive premium pass for the client-facing Elkhorn concept. */
+body[data-poc="client-concept"]{background:#f7f2e9;color:var(--charcoal)}
+body[data-poc="client-concept"] .poc-display,body[data-poc="client-concept"] h2,body[data-poc="client-concept"] h3{text-wrap:balance;letter-spacing:-.025em}
+body[data-poc="client-concept"] .poc-display{letter-spacing:-.045em;max-width:11.5ch}
+body[data-poc="client-concept"] .poc-lede{max-width:39rem}
+body[data-poc="client-concept"] .site-header{border-bottom:1px solid rgba(255,255,255,.08)}
+.poc-hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(15,35,30,.22),transparent 46%);pointer-events:none}
+.poc-hero-content{max-width:80rem}
+.poc-button{border-radius:.28rem;min-height:3.2rem;padding:.88rem 1.35rem;letter-spacing:.01em}
+.poc-button-light{background:rgba(15,35,30,.18)}
+.text-link{display:inline-flex;align-items:center;gap:.35rem;text-underline-offset:.28em;text-decoration-thickness:1px}
+.poc-proof{border-block:1px solid rgba(23,55,46,.14);background:#fbf8f2}
+.poc-proof-grid{display:grid;grid-template-columns:minmax(12rem,.7fr) minmax(0,1.5fr) auto;gap:clamp(1.5rem,4vw,4rem);align-items:center;padding-block:clamp(1.4rem,3vw,2.2rem)}
+.poc-proof-mark{display:flex;align-items:baseline;gap:.7rem}.poc-proof-mark span{font-size:.72rem;text-transform:uppercase;letter-spacing:.18em;color:var(--pine-800);font-weight:800}.poc-proof-mark strong{font:500 clamp(2rem,4vw,3.5rem) var(--font-display);color:var(--pine-950)}
+.poc-proof-copy{margin:0;max-width:48rem;font-size:clamp(1rem,1.3vw,1.15rem);color:#46534e}.poc-proof-links{display:flex;gap:1rem;white-space:nowrap}.poc-proof-links a{font-size:.78rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;text-decoration:none;border-bottom:1px solid var(--brass);padding-bottom:.18rem}
+.poc-card{border-radius:.35rem;box-shadow:none;border:1px solid rgba(23,55,46,.13);border-top:2px solid rgba(179,140,80,.7);background:rgba(255,255,255,.62)}
+.poc-card-dark{border-top-color:var(--brass);background:rgba(255,255,255,.045)}
+.poc-media-card,.poc-gallery figure,.poc-banner,.poc-contact-path{border-radius:.45rem}
+.poc-media-card{box-shadow:0 2.2rem 5.5rem rgba(23,55,46,.15)}
+.poc-section-stone{background:radial-gradient(circle at 85% 8%,rgba(179,140,80,.13),transparent 28%),linear-gradient(180deg,#e7ded0,#f4eee5)}
+.poc-section-dark{background:radial-gradient(circle at 12% 20%,rgba(137,161,157,.1),transparent 34%),var(--charcoal)}
+.poc-section-pine{background:radial-gradient(circle at 85% 10%,rgba(179,140,80,.13),transparent 32%),var(--pine-950)}
+.poc-editorial-intro{padding:clamp(4rem,7vw,7rem) 0;background:#fbf8f2}.poc-editorial-intro .poc-shell{display:grid;grid-template-columns:.65fr 1.35fr;gap:clamp(2rem,7vw,7rem);align-items:end}.poc-editorial-intro .poc-kicker{margin-bottom:0}.poc-editorial-intro blockquote{margin:0;font:500 clamp(2.1rem,4.5vw,4.6rem)/1.03 var(--font-display);color:var(--pine-950);max-width:17ch}
+.poc-destination-band{display:grid;grid-template-columns:repeat(3,1fr);border-block:1px solid rgba(23,55,46,.14);background:#fff}.poc-destination-band div{padding:1.35rem 1.5rem;border-right:1px solid rgba(23,55,46,.12)}.poc-destination-band div:last-child{border-right:0}.poc-destination-band span{display:block;font-size:.68rem;text-transform:uppercase;letter-spacing:.15em;color:var(--pine-800);font-weight:800}.poc-destination-band strong{display:block;margin-top:.3rem;font:500 1.35rem var(--font-display)}
+.poc-gallery{gap:.6rem}.poc-gallery figure{outline:1px solid rgba(255,255,255,.08)}
+.poc-contact-path{border-top:2px solid var(--brass)}
+.poc-banner{position:relative;overflow:hidden}.poc-banner::after{content:"";position:absolute;right:-8rem;top:-10rem;width:22rem;height:22rem;border:1px solid rgba(255,255,255,.13);border-radius:50%;box-shadow:0 0 0 4rem rgba(255,255,255,.02),0 0 0 8rem rgba(255,255,255,.018);pointer-events:none}
+@media(max-width:64rem){.poc-proof-grid{grid-template-columns:1fr 1fr}.poc-proof-links{grid-column:1/-1}.poc-editorial-intro .poc-shell{grid-template-columns:1fr}.poc-destination-band{grid-template-columns:1fr}}
+@media(max-width:48rem){.poc-hero{min-height:88svh}.poc-hero-short{min-height:76svh}.poc-proof-grid{grid-template-columns:1fr;gap:1rem}.poc-proof-links{grid-column:auto;overflow-x:auto;padding-bottom:.25rem}.poc-editorial-intro{padding:3.4rem 0}.poc-editorial-intro blockquote{font-size:clamp(2.15rem,10vw,3.25rem)}.poc-destination-band div{border-right:0;border-bottom:1px solid rgba(23,55,46,.12);padding:1rem 1.1rem}.poc-destination-band div:last-child{border-bottom:0}}
