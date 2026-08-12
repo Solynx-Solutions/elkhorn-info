@@ -2,9 +2,9 @@
   "name": "elkhorn-unified-site",
   "private": true,
   "scripts": {
-    "build": "node scripts/build.mjs && node scripts/m3-enhance.mjs && node scripts/poc-enhance.mjs && node scripts/poc-polish.mjs && node scripts/poc-fixups.mjs && node scripts/poc-premium.mjs && node scripts/poc-compat.mjs",
+    "build": "node scripts/build.mjs && node scripts/m3-enhance.mjs && node scripts/poc-enhance.mjs && node scripts/poc-polish.mjs && node scripts/poc-fixups.mjs && node scripts/poc-premium.mjs && node scripts/poc-client-media.mjs && node scripts/poc-compat.mjs",
     "lint": "node scripts/validate.mjs",
-    "type-check": "node scripts/type-check.mjs && node --check src/analytics.js && node --check src/poc.js && node --check scripts/m3-enhance.mjs && node --check scripts/qa-m3.mjs && node --check scripts/poc-enhance.mjs && node --check scripts/poc-polish.mjs && node --check scripts/poc-fixups.mjs && node --check scripts/poc-premium.mjs && node --check scripts/poc-compat.mjs && node --check scripts/qa-poc.mjs && node --check scripts/qa-premium.mjs",
-    "qa": "node scripts/qa.mjs && node scripts/qa-m3.mjs && node scripts/qa-poc.mjs && node scripts/qa-premium.mjs"
+    "type-check": "node scripts/type-check.mjs && node --check src/analytics.js && node --check src/poc.js && node --check scripts/m3-enhance.mjs && node --check scripts/qa-m3.mjs && node --check scripts/poc-enhance.mjs && node --check scripts/poc-polish.mjs && node --check scripts/poc-fixups.mjs && node --check scripts/poc-premium.mjs && node --check scripts/poc-client-media.mjs && node --check scripts/poc-compat.mjs && node --check scripts/qa-poc.mjs && node --check scripts/qa-premium.mjs && node --check scripts/qa-client-media.mjs",
+    "qa": "node scripts/qa.mjs && node scripts/qa-m3.mjs && node scripts/qa-poc.mjs && node scripts/qa-premium.mjs && node scripts/qa-client-media.mjs"
   }
 }
