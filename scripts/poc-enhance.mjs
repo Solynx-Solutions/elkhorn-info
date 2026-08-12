@@ -122,7 +122,7 @@ function menu() {
 }
 
 function teeTimes() {
-  return `<main id="main-content" class="poc-main">${hero({image:media.golf,kicker:'Elkhorn Golf · Tee Times',title:'From Elkhorn to the tee sheet in one clear move.',lede:'The unified site keeps booking visible while preserving Elkhorn’s existing external tee-time experience.',actions:a('https://www.elkhorngc.com/book-a-tee-time/','Continue to Tee-Time Booking')+a('/golf/','Explore Golf','poc-button-light'),short:true})}<section class="poc-section"><div class="poc-shell">${reveal(`<div class="poc-banner"><p class="poc-kicker poc-kicker-light">Booking preserved</p><h2>The experience improves without replacing the system behind it.</h2><p>Guests get a clear handoff into the existing booking path, while Elkhorn keeps the current booking dependency intact.</p>${a('https://www.elkhorngc.com/book-a-tee-time/','Book a Tee Time')}</div>`)}</div></section></main>`;
+  return `<main id="main-content" class="poc-main">${hero({image:media.golf,kicker:'Elkhorn Golf · Tee Times',title:'Tee-time connection coming soon.',lede:'The direct EZLinks booking URL is being verified. No temporary or guessed external destination is published.',actions:a('/golf/','Explore Golf','poc-button-light'),short:true})}<section class="poc-section"><div class="poc-shell">${reveal(`<div class="integration-holder" role="status" aria-label="EZLinks connection pending"><span class="status-chip">Connection pending</span><h2>EZLinks</h2><p>The approved direct booking connection will replace this holder when supplied.</p><button class="button" type="button" disabled aria-disabled="true">Link coming soon</button></div>`)}</div></section></main>`;
 }
 
 function membership() {
@@ -147,7 +147,7 @@ function galleryPage() {
 
 function eventInquiry(existingHtml) {
   const form = existingHtml.match(/<form id="eventForm"[\s\S]*?<\/form>/)?.[0] ?? '';
-  return `<main id="main-content" class="poc-main">${hero({image:media.events,kicker:'Plan an Event',title:'Tell us what you’re imagining.',lede:'A simple planning form connects the visual experience to Elkhorn’s existing event inquiry workflow.',actions:a('/events/spaces/','Explore Event Spaces')+a('/weddings/','Explore Weddings','poc-button-light'),short:true})}<section class="poc-section"><div class="poc-shell poc-grid-2">${reveal(`<div class="poc-copy"><p class="poc-kicker poc-eyebrow-line">Start the conversation</p><h2>Share the shape of your event.</h2><p>Keep the first step easy. Elkhorn can follow up on the details after the initial inquiry.</p><div class="poc-card"><h3>Planning path</h3><p>Weddings, business gatherings, banquets and private celebrations all use one clear inquiry experience.</p></div></div>`)}<div class="poc-card poc-reveal">${form}</div></div></section></main>`;
+  return `<main id="main-content" class="poc-main">${hero({image:media.events,kicker:'Plan an Event',title:'Tell us what you’re imagining.',lede:'A simple planning form connects the visual experience to Elkhorn’s existing event inquiry workflow.',actions:a('/events/spaces/','Explore Event Spaces')+a('/weddings/','Explore Weddings','poc-button-light'),short:true})}<section class="poc-section"><div class="poc-shell poc-grid-2">${reveal(`<div class="poc-copy"><p class="poc-kicker poc-eyebrow-line">Start the conversation</p><h2>Share the shape of your event.</h2><p>Keep the first step easy. Elkhorn can follow up on the details after the initial inquiry.</p><div class="poc-card"><h3>Planning path</h3><p>Weddings, business gatherings, banquets and private celebrations all use one clear inquiry experience.</p></div></div>`)}<div class="poc-card poc-reveal">${form}</div></div><div class="integration-holder poc-reveal" role="status" aria-label="Tripleseat connection pending"><span class="status-chip">Connection pending</span><h2>Tripleseat</h2><p>The approved Tripleseat URL will replace this holder when supplied. The LeadConnector form above remains unchanged.</p><button class="button" type="button" disabled aria-disabled="true">Link coming soon</button></div></section></main>`;
 }
 
 const renderers = new Map([
@@ -163,7 +163,7 @@ const dockFor = new Map([
   ['/events/spaces/', ['/events/request-information/','Plan an Event','/weddings/','Weddings']],
   ['/contact/', ['/events/request-information/','Plan an Event','/tee-times/','Tee Times']],
   ['/grill/menu/', ['/grill/','The Grill','/contact/#grill-contact','Contact']],
-  ['/tee-times/', ['https://www.elkhorngc.com/book-a-tee-time/','Book a Tee Time','/golf/','Golf']],
+  ['/tee-times/', ['/golf/','Explore Golf','/contact/#golf-contact','Golf Contact']],
   ['/golf/membership/', ['/contact/#golf-contact','Membership Interest','/golf/','Golf']],
   ['/golf/tournaments/', ['/contact/#golf-contact','Plan an Outing','/golf/','Golf']],
   ['/calendar/', ['/grill/','Explore Grill','/newsletter/','Updates']],

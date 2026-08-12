@@ -9,6 +9,7 @@ const grill = await read('dist/grill/index.html');
 const weddings = await read('dist/weddings/index.html');
 const contact = await read('dist/contact/index.html');
 const form = await read('dist/events/request-information/index.html');
+const teeTimes = await read('dist/tee-times/index.html');
 const adapters = JSON.parse(await read('config/adapters.json'));
 const models = JSON.parse(await read('config/content-models.json'));
 const checks = [
@@ -29,6 +30,8 @@ const checks = [
   ['contact routing groups', ['id="golf-contact"','id="grill-contact"','id="events-contact"','id="general-contact"'].every(v => contact.includes(v))],
   ['form labels and status', form.includes('for="first_name"') && form.includes('role="status"') && form.includes('aria-live="polite"')],
   ['LeadConnector preserved', js.includes('services.leadconnectorhq.com/hooks/dqx7xejokriuUHqNrGvU/webhook-trigger/bac0de25-7a7c-433c-8312-f54d9abcc1f7')],
+  ['EZLinks holder inactive', teeTimes.includes('EZLinks') && teeTimes.includes('Connection pending') && teeTimes.includes('disabled aria-disabled="true"') && !teeTimes.includes('elkhorngc.com/book-a-tee-time')],
+  ['Tripleseat holder inactive', form.includes('Tripleseat') && form.includes('Connection pending') && form.includes('disabled aria-disabled="true"')],
   ['form response and error handling', js.includes('response.ok') && js.includes('could not submit')],
   ['development adapters inactive', Object.values(adapters).filter(v => typeof v === 'object').every(v => v.enabled === false)],
   ['content model families', ['golfRate','membershipPlan','menu','special','venueSpace','event','testimonial','galleryItem','downloadAsset'].every(v => models.models[v])],

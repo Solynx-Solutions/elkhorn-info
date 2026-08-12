@@ -5,5 +5,6 @@
   "newsletter": { "enabled": false, "provider": null },
   "calendar": { "enabled": false, "provider": null },
   "eventData": { "enabled": false, "provider": null },
-  "tripleseat": { "enabled": false, "mode": "preserve-existing-routing" }
+  "ezlinks": { "enabled": false, "url": null, "mode": "connection-url-pending" },
+  "tripleseat": { "enabled": false, "url": null, "mode": "connection-url-pending" }
 }

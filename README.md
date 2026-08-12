@@ -11,6 +11,6 @@ M1 established the 33-route architecture and shared shell. M2 applied the approv
 - `npm run type-check` performs JavaScript syntax checks for the base and M3 development scripts; TypeScript is not used.
 - `npm run qa` runs both M2 and M3 safety, accessibility, integration, responsive, content-model, analytics, and route-family assertions.
 
-Redirects in `config/redirects.draft.csv` are documentation only and are not active. Integration states in `config/integrations.json` and `config/adapters.json` must remain inactive until approved. The production LeadConnector endpoint and existing external tee-time path are preserved.
+Redirects in `config/redirects.draft.csv` are documentation only and are not active. Integration states in `config/integrations.json` and `config/adapters.json` must remain inactive until approved. The production LeadConnector endpoint is preserved. EZLinks and Tripleseat use disabled connection holders until their approved direct URLs are supplied.
 
 See `docs/staging.md`, `docs/qa-m2.md`, and `docs/qa-m3.md` for preview and validation status.

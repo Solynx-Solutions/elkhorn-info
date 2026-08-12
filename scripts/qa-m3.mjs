@@ -36,7 +36,7 @@ const checks = [
   ['structured-data guardrails defer unverified business schemas', ['LocalBusiness','Restaurant','GolfCourse','Event','Offer','Product'].every(type => structured.deferredTypes.includes(type))],
   ['analytics architecture is development-only with no network vendor', analytics.status === 'development-only' && analytics.provider === null && analytics.networkDispatchEnabled === false && analytics.rules.noPIIInEventPayloads === true],
   ['analytics client queues local events without network dispatch', analyticsJs.includes('__ELKHORN_ANALYTICS__') && analyticsJs.includes('CustomEvent') && !analyticsJs.includes('fetch(') && !analyticsJs.includes('sendBeacon')],
-  ['tee-time conversion preserves existing external booking URL', pages.get('/tee-times/').includes('https://www.elkhorngc.com/book-a-tee-time/') && integrations.teeTimeBooking.activateNewWorkflow === false],
+  ['tee-time holder preserves inactive booking state', pages.get('/tee-times/').includes('EZLinks') && pages.get('/tee-times/').includes('Connection pending') && integrations.teeTimeBooking.url === null && integrations.teeTimeBooking.activateNewWorkflow === false],
   ['event inquiry production endpoint remains preserved', siteJs.includes('services.leadconnectorhq.com/hooks/dqx7xejokriuUHqNrGvU/webhook-trigger/bac0de25-7a7c-433c-8312-f54d9abcc1f7') && integrations.eventInquiries.activateNewWorkflow === false],
   ['all development adapters remain inactive', Object.values(adapters).filter(value => typeof value === 'object').every(value => value.enabled === false)],
   ['no integration workflow is activated', noActiveIntegration],

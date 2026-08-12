@@ -1,6 +1,7 @@
 {
-  "teeTimeBooking": { "status": "external-existing", "url": "https://www.elkhorngc.com/book-a-tee-time/", "activateNewWorkflow": false },
+  "teeTimeBooking": { "provider": "EZLinks", "status": "connection-url-pending", "url": null, "activateNewWorkflow": false },
   "eventInquiries": { "status": "preserved-leadconnector", "activateNewWorkflow": false },
+  "tripleseat": { "status": "connection-url-pending", "url": null, "activateNewWorkflow": false },
   "membershipInquiries": { "status": "placeholder", "activateNewWorkflow": false },
   "tournamentInquiries": { "status": "placeholder", "activateNewWorkflow": false },
   "newsletterSignup": { "status": "placeholder", "activateNewWorkflow": false },

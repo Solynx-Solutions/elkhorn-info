@@ -47,7 +47,7 @@ const checks = [
   ['POC motion is restrained and reduced-motion safe', js.includes('IntersectionObserver') && css.includes('prefers-reduced-motion:reduce') && !css.includes('scroll-snap-type')],
   ['POC responsive rules provide dedicated mobile composition', css.includes('@media(max-width:48rem)') && css.includes('.poc-mobile-dock') && css.includes('.poc-grid-2,.poc-grid-3,.poc-contact-paths{grid-template-columns:1fr}')],
   ['gallery uses only existing project asset paths', ['/assets/golf.jpg','/assets/dining.jpg','/assets/events.jpg','/assets/sunset.jpg'].every(v => core.home.includes(v) || core.spaces.includes(v))],
-  ['tee-time path remains external existing dependency', integrations.teeTimeBooking.status === 'external-existing' && integrations.teeTimeBooking.activateNewWorkflow === false && support.tee.includes('https://www.elkhorngc.com/book-a-tee-time/')],
+  ['tee-time path uses inactive EZLinks holder', integrations.teeTimeBooking.status === 'connection-url-pending' && integrations.teeTimeBooking.url === null && integrations.teeTimeBooking.activateNewWorkflow === false && support.tee.includes('EZLinks') && support.tee.includes('Link coming soon')],
   ['LeadConnector event endpoint remains unchanged', siteJs.includes('services.leadconnectorhq.com/hooks/dqx7xejokriuUHqNrGvU/webhook-trigger/bac0de25-7a7c-433c-8312-f54d9abcc1f7')],
   ['all new adapters remain disabled', Object.values(adapters).filter(v => typeof v === 'object').every(v => v.enabled === false)],
   ['redirect registry remains draft-only', redirects.split('\n').slice(1).filter(Boolean).every(line => line.startsWith('draft,'))],

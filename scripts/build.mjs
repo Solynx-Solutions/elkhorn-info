@@ -147,6 +147,10 @@ function emptyState(title, body, action = '') {
   return `<div class="empty-state" role="status"><span class="empty-icon" aria-hidden="true">◇</span><h3>${title}</h3><p>${body}</p>${action}</div>`;
 }
 
+function integrationHolder(name, purpose) {
+  return `<div class="integration-holder" role="status" aria-label="${name} connection pending"><span class="status-chip">Connection pending</span><h2>${name}</h2><p>${purpose}</p><button class="button" type="button" disabled aria-disabled="true">Link coming soon</button></div>`;
+}
+
 function homepage() {
   return `<section class="home-hero media-hero" data-hero>
   <picture class="media-poster"><source media="(max-width:40rem)" srcset="/assets/hero.jpg"><img src="/assets/hero.jpg" alt="Golf course landscape at Elkhorn" width="1800" height="1100"></picture>
@@ -188,8 +192,8 @@ function contactGroups() {
 function bodyFor(type) {
   if (placeholderCards[type] && !['golf', 'grill', 'gallery'].includes(type)) return cards(placeholderCards[type]);
   if (type === 'home') return homepage();
-  if (type === 'tee-times') return `<section class="section"><div class="shell narrow"><p class="eyebrow">Tee Times</p><h2>Existing booking experience preserved</h2><p>Tee-time booking remains an external dependency. No booking workflow has been replaced.</p><a class="button" href="https://www.elkhorngc.com/book-a-tee-time/" rel="external">Continue to Tee-Time Booking</a></div></section>`;
-  if (type === 'event-form') return eventForm();
+  if (type === 'tee-times') return `<section class="section"><div class="shell narrow">${integrationHolder('EZLinks','The direct tee-time booking connection is being verified. This holder will be replaced when the approved EZLinks URL is supplied. No booking system has been replaced.')}</div></section>`;
+  if (type === 'event-form') return `${eventForm()}<section class="section section-limestone"><div class="shell narrow">${integrationHolder('Tripleseat','The approved Tripleseat connection URL is still pending. The current LeadConnector event form above remains unchanged and active in this development build.')}</div></section>`;
   if (type === 'golf') return `<section class="section"><div class="shell">${media({desktop:'/assets/golf.jpg',alt:'Golf course at Elkhorn',eyebrow:'Golf',title:'A modern home for the golf experience',body:'This exemplar combines photography, course pathways, membership, tournaments, and the preserved external tee-time dependency. Rates and policies remain intentionally empty.',href:'/tee-times/',cta:'Book a Tee Time'})}</div></section>${cards(placeholderCards.golf)}`;
   if (type === 'weddings') return `<section class="section"><div class="shell">${media({desktop:'/assets/events.jpg',alt:'Wedding event setting at Elkhorn',eyebrow:'Weddings',title:'A foundation for meaningful celebrations',body:'This exemplar demonstrates photography-led storytelling, contextual planning actions, and controlled content while packages and capacities await verification.',href:'/events/request-information/',cta:'Plan an Event'})}<div class="card-grid"><article class="card"><h3>Explore the setting</h3><p>Venue-space content is structured for verified room details, accessibility information, and approved imagery.</p>${link('/events/spaces/','Explore Event Spaces')}</article><article class="card"><h3>See the experience</h3><p>Wedding media remains permission-controlled and will appear only after approval.</p>${link('/gallery/weddings/','View Wedding Gallery')}</article><article class="card"><h3>Start planning</h3><p>The existing event inquiry path remains available without replacing downstream production systems.</p>${link('/events/request-information/','Request Information')}</article></div></div></section>`;
   if (type === 'contact') return `<section class="section"><div class="shell"><div class="section-heading"><div><p class="eyebrow">Contact</p><h2>Choose the right Elkhorn path</h2><p>Department routing is separated now so verified phone numbers, emails, and hours can be inserted later without redesigning the page.</p></div></div>${contactGroups()}</div></section>`;
