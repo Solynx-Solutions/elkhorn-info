@@ -1,18 +1,6 @@
-/* Jessica's weekly edit point. Replace only confirmed copy; leave unavailable fields blank. */
-window.ELKHORN_WEEKLY = {
-  updatedLabel: "Updated weekly",
-  headline: "A fresh week at Elkhorn.",
-  introduction: "One place for the latest Grill notes, public happenings, course reminders, and planning details.",
-  weather: {
-    label: "Plan for the day",
-    title: "Check conditions before you arrive.",
-    body: "Weather can shape a round, a patio visit, or an outdoor celebration. Confirm the current Stockton forecast as you make plans.",
-    linkLabel: "View Stockton weather",
-    link: "https://forecast7.com/en/37d96n12129/stockton/"
-  },
-  sections: [
-    { kicker: "From the Grill", title: "Weekly specials", body: "Current Thursday and Friday specials can be published here as soon as the week’s details are confirmed.", status: "This week’s selections are being prepared.", linkLabel: "Current menu & details", link: "https://elkhornbanquet.com/elkhorn-grill/" },
-    { kicker: "Around Elkhorn", title: "Public events", body: "Club events, Grill events, cornhole, and tournament notices can share one readable weekly home when confirmed.", status: "Check the current public calendar for posted dates.", linkLabel: "Current public listings", link: "https://elkhornbanquet.com/events/" },
-    { kicker: "Course note", title: "Ready for your next round?", body: "Use Elkhorn’s current booking service for live public tee-time availability.", status: "Booking remains available through EZLinks.", linkLabel: "Book a public tee time", link: "https://elkhorngc.ezlinksgolf.com/search" }
-  ]
-};
+/* Weekly editorial source: publish only confirmed dates, service details, and offers. */
+window.ELKHORN_WEEKLY={updatedLabel:"Week of August 17",headline:"This week, meet us at Elkhorn.",introduction:"A single editorial view of Grill service, public happenings, golf planning, and the week ahead.",weather:{label:"Stockton outlook",title:"Plan with the weather in mind.",body:"Check current conditions before a round, patio visit, or outdoor celebration.",linkLabel:"View current forecast",link:"https://forecast7.com/en/37d96n12129/stockton/"},sections:[
+{kicker:"Tuesday–Sunday",title:"Breakfast & lunch",body:"The Grill kitchen serves from 7am to 2pm, with all-day breakfast, lunch choices, and changing features.",status:"Kitchen · 7am–2pm",linkLabel:"Explore the Grill",link:"restaurant.html#menu"},
+{kicker:"Thursday & Friday",title:"Dinner at the Grill",body:"Dinner is served from 5pm to 9pm. Reservations are recommended.",status:"Dinner · 5–9pm",linkLabel:"Call for reservations",link:"tel:+18443830197"},
+{kicker:"Golf",title:"Make time for a round",body:"Review the weather, find public tee times, or continue through verified member booking.",status:"Live availability through EZLinks",linkLabel:"Explore golf",link:"golf.html"}
+]};
