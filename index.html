@@ -4,8 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#14271f">
-  <title>Elkhorn — Golf, Grill & Events in Stockton</title>
-  <meta name="description" content="A place to play, gather, and celebrate. Discover Elkhorn Golf Course, Elkhorn Grill, and unforgettable events in Stockton, California.">
+  <title>Elkhorn — Golf, Restaurant & Events in Stockton</title>
+  <meta name="description" content="A place to play, gather, and celebrate. Discover Elkhorn Golf Course, the Elkhorn restaurant, and unforgettable events in Stockton, California.">
+  <link rel="canonical" href="https://elkhorn.info/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Libre+Caslon+Display&display=swap" rel="stylesheet">
@@ -60,7 +61,7 @@
       <form id="eventForm" class="inquiry-form">
         <div class="form-row"><label>First name <span>*</span><input type="text" name="first_name" autocomplete="given-name" required></label><label>Last name <span>*</span><input type="text" name="last_name" autocomplete="family-name" required></label></div>
         <div class="form-row"><label>Email <span>*</span><input type="email" name="email" autocomplete="email" required></label><label>Phone <span>*</span><input type="tel" name="phone" autocomplete="tel" required></label></div>
-        <div class="form-row"><label>Event type<select name="event_type" required><option value="" selected disabled>Select an event type</option><option>Wedding</option><option>Corporate Event</option><option>Celebration</option><option>Private Party</option><option>Fundraiser or Nonprofit Event</option><option>Golf Event</option><option>Other</option></select></label><label>Preferred date<input type="date" name="event_date" id="eventDate"></label></div>
+        <div class="form-row"><label>Event type<select name="event_type" required><option value="" selected disabled>Select an event type</option><option>Wedding</option><option>Quinceañera</option><option>Celebration of Life</option><option>Corporate Event</option><option>Celebration</option><option>Private Party</option><option>Fundraiser or Nonprofit Event</option><option>Golf Event</option><option>Other</option></select></label><label>Preferred date<input type="date" name="event_date" id="eventDate"></label></div>
         <label>Estimated guest count<div class="range-line"><input type="range" min="10" max="320" step="5" value="100" name="guest_count" id="guestSlider"><output id="guestCountValue" for="guestSlider">100 guests</output></div><span class="range-limits" aria-hidden="true"><small>10 guests</small><small>320 guests</small></span></label>
         <label>What are you imagining?<textarea name="message" rows="4"></textarea></label>
         <fieldset class="consent"><legend>Text message preferences</legend><label><input type="checkbox" name="marketing_sms_consent" value="yes"><span>I consent to receive <strong>marketing text messages</strong> about special offers, discounts, and service updates from <strong>Friends of Elkhorn, LLC DBA Elkhorn Grill</strong> at the phone number provided. Message frequency may vary. Message &amp; data rates may apply. Text HELP for assistance, reply STOP to opt out.</span></label><label><input type="checkbox" name="non_marketing_sms_consent" value="yes"><span>I consent to receive <strong>non-marketing text messages</strong> from <strong>Friends of Elkhorn, LLC DBA Elkhorn Grill</strong> about appointment reminders, order updates, or service notifications. Message frequency may vary. Message &amp; data rates may apply. Text HELP for assistance, reply STOP to opt out.</span></label></fieldset>
@@ -69,7 +70,7 @@
     </section>
   </main>
 
-  <footer><a class="footer-brand" href="#top">Elkhorn</a><p>Golf · Grill · Events</p><nav aria-label="Legal"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></nav><p>© <span id="year"></span> Friends of Elkhorn, LLC</p></footer>
+  <footer><a class="footer-brand" href="#top">Elkhorn</a><p>Golf · Restaurant · Events</p><nav aria-label="Legal"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></nav><p>© <span id="year"></span> Friends of Elkhorn, LLC</p></footer>
   <script>
     const menu=document.querySelector('.menu-toggle'),nav=document.querySelector('#site-nav');menu.addEventListener('click',()=>{const open=menu.getAttribute('aria-expanded')==='true';menu.setAttribute('aria-expanded',String(!open));nav.classList.toggle('open',!open)});nav.addEventListener('click',()=>{menu.setAttribute('aria-expanded','false');nav.classList.remove('open')});
     const slider=document.querySelector('#guestSlider'),count=document.querySelector('#guestCountValue'),eventDate=document.querySelector('#eventDate');slider.addEventListener('input',()=>count.value=`${slider.value} guests`);const today=new Date();eventDate.min=today.toISOString().split('T')[0];eventDate.addEventListener('click',()=>eventDate.showPicker?.());document.querySelector('#year').textContent=today.getFullYear();
