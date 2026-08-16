@@ -12,6 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Libre+Caslon+Display&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="form-fixes.css">
+  <link rel="stylesheet" href="collections.css">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -19,8 +20,8 @@
     <a class="brand" href="#top" aria-label="Elkhorn home"><img src="assets/Elkhorn.png" alt=""><span>Elkhorn</span></a>
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span></span><span></span><span></span><span class="sr-only">Menu</span></button>
     <nav id="site-nav" aria-label="Primary navigation">
-      <a href="golf.html">Golf</a><a href="restaurant.html">Restaurant</a><a href="events.html">Events &amp; Planning</a>
-      <a class="nav-cta" href="https://elkhorngc.ezlinksgolf.com/search" target="_blank" rel="noopener noreferrer">Book a tee time <span aria-hidden="true">↗</span></a>
+      <a href="golf.html">Golf</a><a href="restaurant.html">Grill</a><a href="events.html">Events &amp; Planning</a><a href="weekly.html">This Week</a><a href="gallery.html">Gallery</a>
+      <a class="nav-cta" href="membership.html">Membership</a>
     </nav>
   </header>
 
@@ -42,6 +43,8 @@
       <div class="intro-grid"><h2>Your place<br>in the <em>valley.</em></h2><div><p class="lead">Tucked among mature trees in north Stockton, Elkhorn is where early tee times turn into long lunches—and everyday gatherings become landmark occasions.</p><p>Whether you are chasing a personal best, meeting friends at the grill, or raising a glass with everyone you love, there is always a reason to linger.</p></div></div>
     </section>
 
+    <section class="weather-panel"><div><p class="eyebrow light">This Week at Elkhorn</p><h2>Current details.<br><em>One easy stop.</em></h2></div><div><p class="weather-copy">Find Grill notes, public happenings, tee-time access, and a useful weather check in the new weekly hub.</p><a class="text-link" href="weekly.html">See what’s happening <span aria-hidden="true">→</span></a></div></section>
+
     <section class="experiences" id="experiences" aria-labelledby="experiences-title">
       <div class="section-head"><div><p class="eyebrow">Choose your experience</p><h2 id="experiences-title">A day at Elkhorn</h2></div><p>Three distinct experiences, connected by warm hospitality and a sense of place.</p></div>
       <article class="experience"><div class="experience-image"><img src="assets/golf.jpg" alt="Late afternoon light across Elkhorn Golf Course"></div><div class="experience-copy"><span class="number">01</span><p class="eyebrow">The course</p><h3>Golf, the way it should feel.</h3><p>Tree-lined fairways, thoughtful challenges, and the kind of quiet that sharpens every shot. A welcoming course for every level of play.</p><a class="text-link" href="golf.html">Explore golf <span aria-hidden="true">→</span></a></div></article>
@@ -57,7 +60,7 @@
     </section>
 
     <section class="inquiry" id="contact" aria-labelledby="contact-title">
-      <div class="inquiry-intro"><p class="eyebrow light">Begin the conversation</p><h2 id="contact-title">Let’s make it<br><em>a day to remember.</em></h2><p>Tell us a little about your gathering and our events team will be in touch shortly.</p><div class="contact-details"><a href="tel:18443830197">844 383 0197</a><address>1050 Elkhorn Drive<br>Stockton, CA 95209</address></div></div>
+      <div class="inquiry-intro"><p class="eyebrow light">Begin the conversation</p><h2 id="contact-title">Let’s make it<br><em>a day to remember.</em></h2><p>Tell us a little about your gathering and our events team will be in touch shortly.</p><div class="contact-details"><a href="tel:12094772200">209-477-2200</a><address>1050 Elkhorn Drive<br>Stockton, CA 95209</address></div></div>
       <form id="eventForm" class="inquiry-form">
         <div class="form-row"><label>First name <span>*</span><input type="text" name="first_name" autocomplete="given-name" required></label><label>Last name <span>*</span><input type="text" name="last_name" autocomplete="family-name" required></label></div>
         <div class="form-row"><label>Email <span>*</span><input type="email" name="email" autocomplete="email" required></label><label>Phone <span>*</span><input type="tel" name="phone" autocomplete="tel" required></label></div>
@@ -70,11 +73,11 @@
     </section>
   </main>
 
-  <footer><a class="footer-brand" href="#top">Elkhorn</a><p>Golf · Restaurant · Events</p><nav aria-label="Legal"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></nav><p>© <span id="year"></span> Friends of Elkhorn, LLC</p></footer>
+  <footer><a class="footer-brand" href="#top">Elkhorn</a><nav aria-label="Explore"><a href="facility.html">Facility</a><a href="gallery.html">Gallery</a><a href="weekly.html">This Week</a></nav><nav aria-label="Social media"><a href="https://www.facebook.com/elkhorngrillandbanquets" target="_blank" rel="noopener noreferrer">Facebook</a><a href="https://www.instagram.com/elkhorn_grill/" target="_blank" rel="noopener noreferrer">Instagram</a><a href="https://x.com/elkhorngolfca" target="_blank" rel="noopener noreferrer">X</a></nav><nav aria-label="Legal"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></nav><p>© <span id="year"></span> Friends of Elkhorn, LLC</p></footer>
   <script>
     const menu=document.querySelector('.menu-toggle'),nav=document.querySelector('#site-nav');menu.addEventListener('click',()=>{const open=menu.getAttribute('aria-expanded')==='true';menu.setAttribute('aria-expanded',String(!open));nav.classList.toggle('open',!open)});nav.addEventListener('click',()=>{menu.setAttribute('aria-expanded','false');nav.classList.remove('open')});
     const slider=document.querySelector('#guestSlider'),count=document.querySelector('#guestCountValue'),eventDate=document.querySelector('#eventDate');slider.addEventListener('input',()=>count.value=`${slider.value} guests`);const today=new Date();eventDate.min=today.toISOString().split('T')[0];eventDate.addEventListener('click',()=>eventDate.showPicker?.());document.querySelector('#year').textContent=today.getFullYear();
-    const form=document.querySelector('#eventForm'),status=document.querySelector('.form-status');form.addEventListener('submit',async e=>{e.preventDefault();status.textContent='Sending your inquiry…';const button=form.querySelector('.submit');button.disabled=true;try{const data=Object.fromEntries(new FormData(form));const response=await fetch('https://services.leadconnectorhq.com/hooks/dqx7xejokriuUHqNrGvU/webhook-trigger/bac0de25-7a7c-433c-8312-f54d9abcc1f7',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});if(!response.ok)throw new Error();form.reset();count.value='100 guests';status.textContent='Thank you. Our events team will be in touch shortly.'}catch{status.textContent='We couldn’t send that just now. Please call 844-383-0197 and we’ll be happy to help.'}finally{button.disabled=false}});
+    const form=document.querySelector('#eventForm'),status=document.querySelector('.form-status');form.addEventListener('submit',async e=>{e.preventDefault();status.textContent='Sending your inquiry…';const button=form.querySelector('.submit');button.disabled=true;try{const data=Object.fromEntries(new FormData(form));const response=await fetch('https://services.leadconnectorhq.com/hooks/dqx7xejokriuUHqNrGvU/webhook-trigger/bac0de25-7a7c-433c-8312-f54d9abcc1f7',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});if(!response.ok)throw new Error();form.reset();count.value='100 guests';status.textContent='Thank you. Our events team will be in touch shortly.'}catch{status.textContent='We couldn’t send that just now. Please call 209-477-2200 and we’ll be happy to help.'}finally{button.disabled=false}});
   </script>
 </body>
 </html>
