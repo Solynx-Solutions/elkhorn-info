@@ -7,12 +7,12 @@
  */
 window.ELKHORN_WEEKLY = {
   contentVersion: "2026-09-07",
-  publishedAt: "2026-09-07T12:21:31-07:00",
+  publishedAt: "2026-09-09T09:14:05-07:00",
   validThrough: "2026-09-14T06:59:59-07:00",
   updatedLabel: "Week of September 7",
-  headline: "Two dinner specials worth planning around.",
+  headline: "Dinner worth planning around.",
   introduction:
-    "Join us Thursday or Friday from 5pm to 9pm, then stay for late-night happy hour from 7pm to 9pm. Reservations are recommended.",
+    "Two chef-prepared dinner specials, a seasonal appetizer, and late-night happy hour at Elkhorn Grill.",
   weather: {
     label: "Stockton outlook",
     title: "Plan with the weather in mind.",
