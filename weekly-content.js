@@ -6,13 +6,13 @@
  * instead of remaining on the public site.
  */
 window.ELKHORN_WEEKLY = {
-  contentVersion: "2026-08-17",
-  publishedAt: "2026-08-17T12:00:00-07:00",
-  validThrough: "2026-08-24T06:59:59-07:00",
-  updatedLabel: "Week of August 17",
-  headline: "This week, meet us at Elkhorn.",
+  contentVersion: "2026-09-07",
+  publishedAt: "2026-09-07T12:21:31-07:00",
+  validThrough: "2026-09-14T06:59:59-07:00",
+  updatedLabel: "Week of September 7",
+  headline: "Two dinner specials worth planning around.",
   introduction:
-    "A single editorial view of Grill service, public happenings, golf planning, and the week ahead.",
+    "Join us Thursday or Friday from 5pm to 9pm, then stay for late-night happy hour from 7pm to 9pm. Reservations are recommended.",
   weather: {
     label: "Stockton outlook",
     title: "Plan with the weather in mind.",
@@ -23,31 +23,31 @@ window.ELKHORN_WEEKLY = {
   },
   sections: [
     {
-      kicker: "Tuesday–Sunday",
-      title: "Breakfast & lunch",
+      kicker: "Thursday · September 10",
+      title: "Teriyaki salmon",
       body:
-        "The Grill kitchen serves from 7am to 2pm, with all-day breakfast, lunch choices, and changing features.",
-      status: "Kitchen · 7am–2pm",
-      linkLabel: "Explore the Grill",
-      link: "restaurant.html#menu",
+        "Teriyaki salmon served with rice and vegetables.",
+      status: "$18 · Dinner 5–9pm",
+      linkLabel: "Call for reservations",
+      link: "tel:+12094772200",
+    },
+    {
+      kicker: "Friday · September 11",
+      title: "Braised lamb shank",
+      body:
+        "Braised lamb shank with chimichurri and creamy polenta.",
+      status: "$28 · Dinner 5–9pm",
+      linkLabel: "Call for reservations",
+      link: "tel:+12094772200",
     },
     {
       kicker: "Thursday & Friday",
-      title: "Dinner at the Grill",
+      title: "A little something for the table",
       body:
-        "Dinner is served from 5pm to 9pm. Reservations are recommended.",
-      status: "Dinner · 5–9pm",
+        "Try the honey-kissed prosciutto-wrapped peach with mozzarella, then stay for $10 appetizers and drink specials during late-night happy hour.",
+      status: "$14 featured appetizer · Happy hour 7–9pm",
       linkLabel: "Call for reservations",
-      link: "tel:+18443830197",
-    },
-    {
-      kicker: "Golf",
-      title: "Make time for a round",
-      body:
-        "Review the weather, find public tee times, or continue through verified member booking.",
-      status: "Live availability through EZLinks",
-      linkLabel: "Explore golf",
-      link: "golf.html",
+      link: "tel:+12094772200",
     },
   ],
 };
